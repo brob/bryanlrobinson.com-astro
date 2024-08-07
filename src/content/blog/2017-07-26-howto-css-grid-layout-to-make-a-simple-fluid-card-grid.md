@@ -1,13 +1,13 @@
 ---
-date: 2017-07-26
+
 title: "How To: Use CSS Grid Layout to Make a Simple, Fluid Card Grid"
+date: 2017-07-26
 categories:
 - Development
 - Design
 - Grid
 - Tutorial
 - CSS
-layout: layouts/post.njk
 description: In this tutorial, I'm going to show you how to take one of the most common tropes of web design -- the card grid -- and make it fluid. 
 featuredImg: /images/blog/fluid-grid/featured-grid.png
 featuredLarge: True
@@ -20,7 +20,7 @@ adSpace:
     linkText: "Sign Up Now"
     linkUrl: https://store.codecontemporary.com/nov-20-11-a-m-cst-pseudo-elements-basics-after-and-before
 ---
-date: 2017-07-26
+
 
 In this tutorial, I'm going to show you how to take one of the most common tropes of web design -- the card grid -- and make it fluid. 
 

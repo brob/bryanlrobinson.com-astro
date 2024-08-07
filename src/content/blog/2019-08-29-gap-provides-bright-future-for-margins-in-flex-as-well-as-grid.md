@@ -1,7 +1,8 @@
 ---
-date: 2019-08-29
+
 layout: "layouts/post.njk"
 title: "CSS Gap creates a bright future for margins in Flex as well as Grid"
+date: 2019-08-29
 categories:
   - development
   - design
@@ -16,7 +17,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-08-29
+
 ![Finished Product with gap](/images/flex-gap-new.png)
 
 One of my many favorite parts of the CSS Grid specification is `grid-gap`. It makes creating "internal margins" to my grids so much easier.

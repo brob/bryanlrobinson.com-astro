@@ -1,7 +1,7 @@
 ---
-date: 2019-04-26
-layout: layouts/post.njk
+
 title: Client work and the JAMstack
+date: 2019-04-26
 categories:
   - development
   - JAMstack
@@ -15,7 +15,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-04-26
+
 
 
 I worked at an agency for almost six years. In that time, I created only a handful of static sites. Part of this was because the agency had a custom content management system. The other part was an unwillingness to give up "dynamic" websites.

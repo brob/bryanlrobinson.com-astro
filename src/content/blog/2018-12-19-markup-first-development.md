@@ -1,7 +1,7 @@
 ---
-date: 2018-12-19
-layout: layouts/post.njk
+
 title: 2019 The Year of Markup-First Development
+date: 2018-12-19
 categories:
   - development
   - CSS
@@ -17,7 +17,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2018-12-19
+
 
 ![Year of Markup Graphic](/images/uploads/year-of-markup.jpg)
 

@@ -1,10 +1,10 @@
 ---
 title: How to Get Designers to Contribute in Open Source
-date: 2015-05-31 00:00:00 Z
+date: 2015-05-31
+
 categories:
 - Design
 - Development
-layout: layouts/post.njk
 subhead: One small step toward the inclusion of designers in our OSS world
 description: I’ve been thinking a decent bit this year about how to get designers
   involved in Open Source projects. There’s more and more being talked about in this

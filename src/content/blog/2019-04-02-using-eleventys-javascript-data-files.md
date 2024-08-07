@@ -1,7 +1,7 @@
 ---
-date: 2019-04-02
-layout: layouts/post.njk
+
 title: Using Eleventy's (11ty) JavaScript Data Files
+date: 2019-04-02
 categories:
   - development
   - 11ty
@@ -17,7 +17,7 @@ adSpace:
   linkUrl: https://store.codecontemporary.com/nov-20-11-a-m-cst-pseudo-elements-basics-after-and-before
 sidebarOverride: "15"
 ---
-date: 2019-04-02
+
 
 I enjoy building workflows for pure static sites. I enjoy ingesting data into my build process instead of loading my client-side with fetches. 
 

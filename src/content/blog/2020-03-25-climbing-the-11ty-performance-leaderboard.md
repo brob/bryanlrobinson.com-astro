@@ -1,7 +1,8 @@
 ---
-date: 2020-03-25
+
 layout: "layouts/post.njk"
 title: "Climbing the 11ty Performance leaderboard with Cloudinary, critical CSS and more"
+date: 2020-03-25
 categories:
   - development
   - JAMstack
@@ -17,7 +18,7 @@ adSpace:
   linkText: Listen Now!
   linkUrl: https://thatsmyjamstack.com
 ---
-date: 2020-03-25
+
 
 A few weeks ago, Zach Leatherman announced that he was going to change the [Built with 11ty](https://www.11ty.dev/docs/sites/) section 11ty's documentation. He was going to create a performance leaderboard to showcase performant projects using the tool.
 

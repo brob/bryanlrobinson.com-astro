@@ -1,10 +1,10 @@
 ---
 title: Memorializing Prince and Print vs. The Web
-date: 2016-04-28 00:00:00 Z
+date: 2016-04-28
+
 categories:
 - Design
 - CSS
-layout: layouts/post.njk
 description: A giant of the music industry passed on April 21. While I wasn’t a zealous follower of his music, I can tell you the world is a sadder place without Prince in it. But that’s not what I’m writing about. In the social media memorializing of this titan, I came across this
 ---
 

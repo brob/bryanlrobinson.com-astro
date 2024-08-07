@@ -1,7 +1,7 @@
 ---
-date: 2018-03-19
-layout: layouts/post.njk
+
 title: 'Modern CSS: Four Things Every Developer and Designer Should Know About CSS'
+date: 2018-03-19
 categories:
   - development
   - design
@@ -12,7 +12,7 @@ baseLayout: container--right
 description: Contrary to popular belief, CSS is an absolute delight. Many developers I talk to think the phrase "Modern CSS" is an oxymoron. If you haven’t been watching the growth and maturity of CSS in the past 5 years, you’re doing yourself a disservice. 
 grid-size: large
 ---
-date: 2018-03-19
+
 
 ## Contrary to popular belief, CSS is an absolute delight. 
 

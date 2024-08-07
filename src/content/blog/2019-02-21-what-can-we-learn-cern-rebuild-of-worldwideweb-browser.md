@@ -1,7 +1,7 @@
 ---
-date: 2019-02-21
-layout: layouts/post.njk
+
 title: "What Can We Learn from CERN's WorldWideWeb rebuild?"
+date: 2019-02-21
 categories:
   - development
   - design
@@ -16,7 +16,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-02-21
+
 
 ![WorldWideWeb browser with a few different sites](/images/worldwideweb-mosaic.png)
 

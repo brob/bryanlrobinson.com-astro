@@ -1,7 +1,7 @@
 ---
-date: 2019-06-19
-layout: layouts/post.njk
+
 title: Now offering design and code reviews at PeerReviews.dev
+date: 2019-06-19
 categories:
   - development
   - design
@@ -16,7 +16,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-06-19
+
 
 ![PeerReviews.dev banner](/images/peerreview-banner.jpg)
 

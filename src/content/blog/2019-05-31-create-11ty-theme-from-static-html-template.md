@@ -1,7 +1,7 @@
 ---
-date: 2019-05-31
-layout: layouts/post.njk
+
 title: Create an Eleventy (11ty) theme based on a free HTML template
+date: 2019-05-31
 updated: "11 November 2019"
 categories:
   - development
@@ -17,7 +17,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-05-31
+
 In this video series, we'll take a look at what it takes to start with a free HTML template found on Google and convert it for use with a static site generator (SSG). We'll be using my personal favorite SSG [11ty](https://11ty.io).
 
 For many people working in agencies or doing freelance, it's hard to make a transition from WordPress to something static. Themes are incredibly handy when using WordPress. You can still have the conveniences of templates and themes with a static site generator.

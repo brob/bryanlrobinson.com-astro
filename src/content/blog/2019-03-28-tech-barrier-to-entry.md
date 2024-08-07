@@ -1,7 +1,7 @@
 ---
-date: 2019-03-28
-layout: layouts/post.njk
+
 title: The Tech Barrier to Entry
+date: 2019-03-28
 categories:
   - development
   - design
@@ -15,7 +15,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-03-28
+
 <figure style="position: relative;
     width: 100%;
     height: 0;

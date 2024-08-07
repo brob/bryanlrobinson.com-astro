@@ -1,7 +1,7 @@
 ---
-date: 2019-01-07
-layout: layouts/post.njk
+
 title: Build Trust on the Web incorporating User Worries with your User Stories
+date: 2019-01-07
 categories:
   - development
   - design
@@ -16,7 +16,7 @@ adSpace:
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 sidebarOverride: "10"
 ---
-date: 2019-01-07
+
 
 The web is suffering from a crisis of trust. Every week there’s a new story posted about a data breach or untrustworthy practices (I’m looking at you, Facebook).
 

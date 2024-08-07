@@ -1,11 +1,11 @@
 ---
-date: 2017-12-07
+
 title: The 5 Stages of Grid Love
+date: 2017-12-07
 categories:
 - Development
 - Grid
 - CSS
-layout: layouts/post.njk
 description: Looking back on the past year, I've identified the five stages of my love with the CSS Grid Specification.
 featuredImg: /images/grid-love-featured.jpg
 featuredLarge: True
@@ -17,7 +17,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2017-12-07
+
 <figure style="grid-column: 1 / 3; grid-row: 1 / 8;"><img src="/images/grid-love.jpg" alt="Grid Love"></figure>
 
 December represents the month the I first fell in love with the CSS Grid specification. I redesigned my blog to use CSS Grid in December 2016 (before Grid was in browsers). Looking back on the past year, I've identified the five stages of my love with this specification.

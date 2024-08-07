@@ -1,7 +1,8 @@
 ---
-date: 2019-09-04
+
 layout: "layouts/post.njk"
 title: "Adapt client-side JavaScript for use in 11ty (Eleventy) data files"
+date: 2019-09-04
 categories:
   - development
   - javascript
@@ -17,7 +18,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-09-04
+
 
 My good friend James Q. Quick recently wrote an awesome post describing interacting with APIs without a framework. He used the Pokémon API [PokeAPI](https://pokeapi.co/). He hooked me and I had to put my own spin on it!
 

@@ -1,7 +1,8 @@
 ---
-date: 2020-01-07
+
 layout: "layouts/post.njk"
 title: "Create a Codepen promo watermark with no additional HTML, CSS or JS"
+date: 2020-01-07
 categories:
   - development
   - CSS
@@ -17,7 +18,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2020-01-07
+
 
 {% youtube 'pfzz0YyNyEo' %}
 

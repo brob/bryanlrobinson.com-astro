@@ -1,15 +1,15 @@
 ---
-date: 2016-12-27
+
 title: I Converted My Blog to CSS Grid Layout and Regret Nothing
+date: 2016-12-27
 categories:
 - Design
 - Grid
 - CSS
-layout: layouts/post.njk
 description: With the death of Lella Vignelli last week (Dec. 21, 2016), I read for the first time The Vignelli Canon. The layout of the pages inspired me. I knew that I wanted to give a quick update to some of my blog posts to mirror some of the design from that book -- a book that talks about grids, as well.
 updated: 15 May, 2017
 ---
-date: 2016-12-27
+
 
 <div class="reference">
     <h2 style="font-size: 1.3em;">Update May 15, 2017</h2>

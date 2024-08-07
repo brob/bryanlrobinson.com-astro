@@ -1,10 +1,10 @@
 ---
-date: 2018-01-24
+
 title: "CSS Tip: Use rotate() and skew() together to introduce some clean punk rock to your CSS"
+date: 2018-01-24
 categories:
 - Development
 - CSS
-layout: layouts/post.njk
 description: I'm still convinced that taking inspiration from punk rock design of the 70s and 80s is going to be a trend. If you want to start small, introduce some angles to your design. This is a simple trick to angle a stripe of content without adding awkward white space.
 featuredImg: images/uploads/rotate_skew_unskew.jpg
 featuredLarge: True
@@ -18,7 +18,7 @@ adSpace:
     linkText: "Sign Up Now"
     linkUrl: https://store.codecontemporary.com/nov-20-11-a-m-cst-pseudo-elements-basics-after-and-before
 ---
-date: 2018-01-24
+
 
 
 <div class="" style="position: relative;

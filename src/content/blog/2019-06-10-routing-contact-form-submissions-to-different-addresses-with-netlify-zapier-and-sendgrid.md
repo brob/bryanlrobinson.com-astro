@@ -1,7 +1,7 @@
 ---
-date: 2019-06-10
-layout: layouts/post.njk
+
 title: Routing contact-form emails to different addresses with Netlify, Zapier and SendGrid
+date: 2019-06-10
 categories:
   - development
 baseLayout: container--right
@@ -15,7 +15,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-06-10
+
 
 ![Netlify + Zapier + SendGrid banner ](/images/jamstack-forms-banner@2x.jpg)
 

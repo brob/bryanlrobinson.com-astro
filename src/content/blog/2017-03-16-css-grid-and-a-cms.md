@@ -1,12 +1,12 @@
 ---
-date: 2017-03-16
+
 title: Can CSS Grid open up interesting CMS Layout options?
+date: 2017-03-16
 categories:
 - Development
 - Design
 - Grid
 - CSS
-layout: layouts/post.njk
 description: I love hand crafting layout in CSS Grid. Ask my co-workers. They're tired of hearing about it. What about people who write no CSS, though? Can we use Grid to open up a world of new layout options to CMS users?
 tags:
 - Grid
@@ -18,7 +18,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2017-03-16
+
 
 I love hand crafting layout in CSS Grid. Ask my co-workers. They're tired of hearing about it.
 

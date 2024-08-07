@@ -1,7 +1,8 @@
 ---
-date: 2020-01-09
+
 layout: "layouts/post.njk"
 title: "Three JAMstack movements to watch in 2020"
+date: 2020-01-09
 categories:
   - development
   - JAMstack
@@ -16,7 +17,7 @@ adSpace:
   linkUrl: https://thatsmyjamstack.com
 templateEngineOverride: njk, md
 ---
-date: 2020-01-09
+
 
 {% respimg
     "https://bryanlrobinson.com/images/jamstack-2020.svg",

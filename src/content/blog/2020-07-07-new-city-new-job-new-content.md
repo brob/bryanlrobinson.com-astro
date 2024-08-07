@@ -1,7 +1,8 @@
 ---
-date: 2020-07-07
+
 layout: "layouts/post.njk"
 title: "New City, New Job, New Content"
+date: 2020-07-07
 categories:
   - Life
 baseLayout: container--right
@@ -14,7 +15,7 @@ adSpace:
   linkText: Listen Now!
   linkUrl: https://thatsmyjamstack.com
 ---
-date: 2020-07-07
+
 
 ![New City, New Job: Headed to Michigan and Working at Sanity with map in the background showcasing the route from Memphis to Michigan](/images/michigan-sanity.png)
 

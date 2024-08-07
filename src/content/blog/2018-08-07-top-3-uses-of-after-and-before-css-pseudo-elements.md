@@ -1,7 +1,7 @@
 ---
-date: 2018-08-07
-layout: layouts/post.njk
+
 title: Top 3 uses for the ::before and ::after CSS pseudo elements
+date: 2018-08-07
 categories:
   - design
   - CSS
@@ -20,7 +20,7 @@ adSpace:
   linkText: "Sign Up Now"
   linkUrl: https://store.codecontemporary.com/nov-20-11-a-m-cst-pseudo-elements-basics-after-and-before
 ---
-date: 2018-08-07
+
 
 It’s no secret that I'm a fan of ::before and ::after pseudo-elements. I use them to great effect for [creating darkened overlays in this previous post](/blog/2018/04/30/how-to-css-after-elements-for-background-overlays/).
 

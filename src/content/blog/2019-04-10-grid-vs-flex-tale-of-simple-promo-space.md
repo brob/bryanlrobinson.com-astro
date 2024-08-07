@@ -1,7 +1,7 @@
 ---
-date: 2019-04-10
-layout: layouts/post.njk
+
 title: 'Grid vs. Flex: A Tale of a "Simple" Promo Space'
+date: 2019-04-10
 categories:
   - development
   - design
@@ -15,7 +15,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-04-10
+
 
 I love the new layout modes in CSS. Grid and Flexbox are both amazing features. They each have their place. What if I told you that if you used the "wrong" one, you could double your CSS and HTML?
 

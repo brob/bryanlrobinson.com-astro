@@ -1,7 +1,7 @@
 ---
-date: 2019-06-21
-layout: layouts/post.njk
+
 title: Creating an 11ty Plugin - SVG Embed Tool
+date: 2019-06-21
 categories:
   - development
   - design
@@ -18,7 +18,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-06-21
+
 
 ![11ty Plugin banner image where a plug is coming out of the 11ty logo](/images/eleventy-plugin-banner@2x.jpg)
 

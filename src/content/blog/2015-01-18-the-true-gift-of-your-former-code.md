@@ -1,9 +1,9 @@
 ---
 title: The True Gift of Your Former Code
-date: 2015-01-18 00:00:00 Z
+date: 2015-01-18
+
 categories:
 - Development
-layout: layouts/post.njk
 description: I’m not in the same league as most developers I have the pleasure of
   meeting, but I had been pretty proud of the little Django app I put together for
   my old portfolio site. It worked pretty well. I had loads of plans for it when I

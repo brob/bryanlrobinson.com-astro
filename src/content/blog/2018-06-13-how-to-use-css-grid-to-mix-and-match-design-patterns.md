@@ -1,7 +1,7 @@
 ---
-date: 2018-06-13
-layout: layouts/post.njk
+
 title: 'How To: Use CSS Grid to Mix and Match Design Patterns'
+date: 2018-06-13
 categories:
   - design
   - CSS
@@ -19,7 +19,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2018-06-13
+
 
 In a previous tutorial, I described [how to create a simple fluid card grid with CSS Grid](/blog/2017/07/26/howto-css-grid-layout-to-make-a-simple-fluid-card-grid/). In this tutorial, we'll take it a step further and create promotional spaces that morph in interesting ways.
 

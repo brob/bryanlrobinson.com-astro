@@ -1,7 +1,8 @@
 ---
-date: 2020-05-06
+
 layout: "layouts/post.njk"
 title: "Using Nunjucks 'If Expressions' in 11ty to create a simple active navigation state"
+date: 2020-05-06
 categories:
   - development
   - JAMstack
@@ -16,7 +17,7 @@ adSpace:
   linkText: Listen Now!
   linkUrl: https://thatsmyjamstack.com
 ---
-date: 2020-05-06
+
 
 
 ![Promo Graphic: Lists code we'll see later with conditional expression and the words: Nunjucks If Expressions: A simple way to create an active navigation state in 11ty](/images/if-expression.png)

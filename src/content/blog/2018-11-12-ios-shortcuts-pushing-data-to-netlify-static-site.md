@@ -1,7 +1,7 @@
 ---
-date: 2018-11-12
-layout: layouts/post.njk
+
 title: Dynamic Static Sites with Netlify and iOS Shortcuts
+date: 2018-11-12
 subhead: Use Netlify Functions, a Gulp build process and iOS Shortcuts to publish dynamic content to your static site
 categories:
   - development
@@ -18,7 +18,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2018-11-12
+
 
 I've been using Netlify as my host for a while now and have consistently loved the experience. In my time with the service, I haven't been utilizing it much more than a static site host.
 

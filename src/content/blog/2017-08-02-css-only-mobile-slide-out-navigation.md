@@ -1,6 +1,7 @@
 ---
-date: 2017-08-02
+
 title: "How To: A CSS-Only Mobile Off Canvas Navigation"
+date: 2017-08-02
 categories:
 - CSS Can Do What
 - Development
@@ -8,7 +9,6 @@ categories:
 - CSS
 - Tutorial
 sidebarOverride: 10
-layout: layouts/post.njk
 description: Mobile navigation and the "hamburger nav" pattern aren't going away. In this tutorial, I'll walk you through creating a mobile off-canvas navigation with only CSS and HTML.
 featuredImg: /images/blog/mobile-nav/mobile-nav-static.png
 featuredLarge: True
@@ -20,7 +20,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2017-08-02
+
 
 Before we get started, I'd like to state for the record: I like JavaScript. There's nothing wrong with using the third language of the browser. It's a great tool for many solutions. But for simple interactions, why complicate matters?
 

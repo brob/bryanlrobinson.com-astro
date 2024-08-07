@@ -1,11 +1,11 @@
 ---
 title: Flexbox -- Let's start simple
-date: 2016-05-02 00:00:00 Z
+date: 2016-05-02
+
 categories:
 - Development
 - Tutorial
 - CSS
-layout: layouts/post.njk
 description: Layout in CSS is hard. We’ve spent the 2 decades since the inception
   of CSS battling with its idea of how to lay out content on the web. When we moved
   from table-based layouts to CSS layouts with floats and positioning, we gained a

@@ -1,7 +1,8 @@
 ---
-date: 2019-12-17
+
 layout: "layouts/post.njk"
 title: "3 underused CSS features to learn for 2020"
+date: 2019-12-17
 categories:
   - development
   - design
@@ -17,7 +18,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2019-12-17
+
 
 ![Banner image featuring multi-column vector illustration with title "CSS Features for 2020"](/images/css-features-banner.svg)
 

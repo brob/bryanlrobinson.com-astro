@@ -1,11 +1,11 @@
 ---
 title: CSS Shapes — Let the Text Flow Around You
-date: 2016-05-09 00:00:00 Z
+date: 2016-05-09
+
 categories:
 - Design
 - Tutorial
 - CSS
-layout: layouts/post.njk
 description: There’s magic in the air around CSS right now. There’s so much new to
   be excited about. One simple thing that you should get excited about is the CSS
   Shapes Module. These are not CSS shapes like building triangles out of border property

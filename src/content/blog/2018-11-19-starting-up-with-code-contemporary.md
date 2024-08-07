@@ -1,7 +1,7 @@
 ---
-date: 2018-11-19
-layout: layouts/post.njk
+
 title: Starting a new journey with Code Contemporary
+date: 2018-11-19
 categories:
   - development
   - design
@@ -16,7 +16,7 @@ adSpace:
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 sidebarOverride: "10"
 ---
-date: 2018-11-19
+
 
 It seems that everyone does a post like this: a bold announcement of a new journey. As of this morning, I'm beginning my new journey as an independent creator. 
 

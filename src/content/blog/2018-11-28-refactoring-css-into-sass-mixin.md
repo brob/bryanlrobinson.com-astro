@@ -1,7 +1,7 @@
 ---
-date: 2018-11-28
-layout: layouts/post.njk
+
 title: Refactoring CSS into a Sass mixin
+date: 2018-11-28
 categories:
   - development
   - CSS
@@ -16,7 +16,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2018-11-28
+
 
 ![Graphic refactoring CSS to Sass](/images/uploads/refactoring-css-to-sass-post.png)
 

@@ -1,7 +1,8 @@
 ---
-date: 2019-07-25
+
 layout: "layouts/post.njk"
 title: Use CSS Grid to create a self-centering full-width element
+date: 2019-07-25
 categories:
   - development
   - design
@@ -16,7 +17,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-07-25
+
 
 ![Self Centering Grid with firefox grid inspector lines showing one column centered](/images/self-center-grid.png)
 

@@ -1,11 +1,11 @@
 ---
 title: Feature Queries are on the Rise
-date: 2016-12-17 00:00:00 Z
+date: 2016-12-17
+
 categories:
 - Design
 - Tutorial
 - CSS
-layout: layouts/post.njk
 description: Since the Web became a more beautiful place with the advent of CSS, there’s
   always been a struggle in the use of more modern features of CSS with browsers who
   are either slower to adopt or more cautious in the way the implement features. There

@@ -1,7 +1,8 @@
 ---
-date: 2019-11-15
+
 layout: "layouts/post.njk"
 title: "Use CSS Subgrid to layout full-width content stripes in an article template"
+date: 2019-11-15
 categories:
   - development
   - design
@@ -18,7 +19,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2019-11-15
+
 
 ![Promo image showing a snippet of the diagram of our grid and subgrid from below](/images/subgrid-topper.png)
 

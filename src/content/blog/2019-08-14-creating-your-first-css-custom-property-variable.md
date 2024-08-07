@@ -1,7 +1,8 @@
 ---
-date: 2019-08-14
+
 layout: "layouts/post.njk"
 title: "Create your first CSS Custom Properties (Variables)"
+date: 2019-08-14
 categories:
   - development
   - design
@@ -16,7 +17,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-08-14
+
 
 ![A theme being built from a form on page](/images/css-custom-property-image.jpg)
 

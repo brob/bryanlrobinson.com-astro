@@ -1,7 +1,7 @@
 ---
-date: 2018-01-29
-layout: layouts/post.njk
+
 title: 3 Strategies for Getting Started with CSS Grid
+date: 2018-01-29
 categories:
   - development
   - Grid
@@ -17,7 +17,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2018-01-29
+
 CSS Grid Layout has been in major browsers for a little less than a year now. Despite the excitement around it by people in the know, not everyone has jumped on board.
 
 I understand. Despite its browser adoption happening in record time, we still live in an IE world sometimes.

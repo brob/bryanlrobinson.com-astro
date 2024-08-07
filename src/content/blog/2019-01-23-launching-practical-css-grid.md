@@ -1,7 +1,7 @@
 ---
-date: 2019-01-23
-layout: layouts/post.njk
+
 title: Practical CSS Grid - Launching My First Course
+date: 2019-01-23
 categories:
   - development
   - design
@@ -16,7 +16,7 @@ adSpace:
   linkText: Start Learning Now!
   linkUrl: https://store.codecontemporary.com/practical-css-grid
 ---
-date: 2019-01-23
+
 
 ![Practical Grid Promo Image](/images/uploads/practical-grid-promo.png)
 

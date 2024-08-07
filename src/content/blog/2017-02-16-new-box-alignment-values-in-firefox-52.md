@@ -1,14 +1,14 @@
 ---
-date: 2017-02-16
+
 title: Firefox 52 to Introduce New Box-Alignment Values
+date: 2017-02-16
 categories:
 - Development
 - CSS
-layout: layouts/post.njk
 description: CSS Grid is coming in Firefox 52 in March. That’s amazing. It could overshadow a few small improvements that are also coming in the release. The Box-Alignment module is getting a couple new features, as well.
 featuredImg: images/blog/space-evenly/space-evenly.png
 ---
-date: 2017-02-16
+
 
 [CSS Grid is coming in Firefox 52 in March](https://developer.mozilla.org/en-US/Firefox/Releases/52). That's amazing. It could overshadow a few small improvements that are also coming in the release. The Box-Alignment module is getting a couple new features, as well.
 

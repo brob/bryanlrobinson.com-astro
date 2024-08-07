@@ -1,7 +1,7 @@
 ---
-date: 2019-02-07
-layout: layouts/post.njk
+
 title: Let's bring Fan Sites and webrings back!
+date: 2019-02-07
 categories:
   - development
   - design
@@ -16,7 +16,7 @@ adSpace:
   linkText: Download Now!
   linkUrl: https://store.codecontemporary.com/solving-three-design-problems-with-css-grid/buy
 ---
-date: 2019-02-07
+
 
 
 In the days before the web was mainstream, it was a place of creation. First for education, then for every random idea that any creator had!
