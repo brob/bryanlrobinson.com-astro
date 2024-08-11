@@ -3,6 +3,7 @@ import {PortableText as PortableTextInternal} from 'astro-portabletext'
 import Code from "./Code.astro";
 import UnknownType from "./UnknownType.astro"
 import Youtube from './Youtube.astro';
+import SanityImage from './SanityImage.astro'
 const { value } = Astro.props;
 
 const components = {
@@ -10,7 +11,8 @@ const components = {
    
     code: Code,
     youtube: Youtube,
-    unknownType: UnknownType
+    unknownType: UnknownType,
+    image: SanityImage
   },
 
 
