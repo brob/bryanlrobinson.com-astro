@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: "Create a Codepen promo watermark with no additional HTML, CSS or JS"
 date: 2020-01-07
 categories:

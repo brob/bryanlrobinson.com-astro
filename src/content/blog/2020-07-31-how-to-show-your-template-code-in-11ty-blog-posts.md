@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: "How to show your template code in 11ty blog posts"
 date: 2020-07-31
 categories:

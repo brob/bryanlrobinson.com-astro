@@ -1,0 +1,15 @@
+---
+import FormattedDate from "./FormattedDate.astro"
+const { post } = Astro.props
+---
+
+<li class="py-5 border-b border-gray-200">
+    <a class="" href={`/blog/${post.slug}/`}>
+        {post.data.featuredImg && <img class="mb-4" width={720} height={360} src={post.data.featuredImg} alt="" />}
+        <h4 class="title">{post.data.title}</h4>
+        <p class="date">
+            <FormattedDate date={post.data.date} />
+        </p>
+        <p class="text-gray-800 mb-0">{post.description}</p>
+    </a>
+</li>

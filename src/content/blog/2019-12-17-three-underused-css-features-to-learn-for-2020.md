@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: "3 underused CSS features to learn for 2020"
 date: 2019-12-17
 categories:

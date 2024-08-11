@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: "Use CSS Subgrid to layout full-width content stripes in an article template"
 date: 2019-11-15
 categories:

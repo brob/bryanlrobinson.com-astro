@@ -4,12 +4,12 @@ interface Props {
 }
 
 const { date } = Astro.props;
-
+const newDate = new Date(date)
 ---
 
-<time datetime={date.toISOString()}>
+<time datetime={newDate.toISOString()}>
 	{
-		date.toLocaleDateString('en-us', {
+		newDate.toLocaleDateString('en-us', {
 			year: 'numeric',
 			month: 'short',
 			day: 'numeric',

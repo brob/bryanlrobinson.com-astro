@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: "Create your first CSS Custom Properties (Variables)"
 date: 2019-08-14
 categories:

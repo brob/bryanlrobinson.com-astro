@@ -2,8 +2,30 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
+
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getPosts } from '../utils/sanityClient';
+import BlogCard from '../components/BlogCard.astro';
+
+
+const posts = (await getCollection('blog'))
+const sanityPosts = await getPosts()
+
+const combinedPosts = [...posts, ...sanityPosts].sort(
+	(a, b) => {
+		return b.data.date.valueOf() - a.data.date.valueOf()}
+);
+
 ---
+
+<style>
+	main {
+		width: 100%
+	}
+</style>
+
 
 <!doctype html>
 <html lang="en">
@@ -12,38 +34,32 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
+		<main class="grid md:grid-cols-[1.5fr_2fr] my-auto max-w-screen-xl gap-10">
+			<div class="relative" style="width:100%">
+			<div class="sticky top-10">
+				<img class="mb-3   max-w-44" src="/images/headshot.jpg" />
+			<h1 class="text-4xl font-bold">Howdy, I'm Bryan</h1>
+			<h2 class="text-2xl">I educate folks about the web and technology.</h2>
+			<p>You may have heard of me, but probably not (I'm not that arrogant). I'm a developer educator that has been working on the web for over 18 years. I've done everything from video product, to leading development and design teams, to building the frontend for enterprise, content-heavy websites.</p>
+			<h3 class="text-xl font-bold">Other Places you can find me</h3>
+			
 			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
+			<li><a href="https://www.youtube.com/@bryanlrobinson">YouTube</a></li>
+			<li><a href="https://twitter.com/brob">Twitter</a></li>
+			<li><a href="https://linkedin.com/in/bryanlrobinson">LinkedIn</a></li>
 			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+		</div>	
+		</div>
+			<div>
+				<h2 class="text-xl uppercase mb-0">Latest posts</h2>
+				<ul class="gap-3">
+					{
+						combinedPosts.map((post) => (
+							<BlogCard post={post} />
+						))
+					}
+				</ul>
+			</div>
 		</main>
 		<Footer />
 	</body>

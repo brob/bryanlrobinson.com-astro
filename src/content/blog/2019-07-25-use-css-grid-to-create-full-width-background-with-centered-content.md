@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: Use CSS Grid to create a self-centering full-width element
 date: 2019-07-25
 categories:

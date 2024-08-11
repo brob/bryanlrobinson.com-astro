@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: "Three JAMstack movements to watch in 2020"
 date: 2020-01-09
 categories:

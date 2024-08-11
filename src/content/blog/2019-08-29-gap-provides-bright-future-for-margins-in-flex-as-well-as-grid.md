@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: "CSS Gap creates a bright future for margins in Flex as well as Grid"
 date: 2019-08-29
 categories:

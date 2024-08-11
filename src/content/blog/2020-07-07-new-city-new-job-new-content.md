@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: "New City, New Job, New Content"
 date: 2020-07-07
 categories:

@@ -1,0 +1,7 @@
+---
+import {YouTube as YouTubeEmbed} from '@astro-community/astro-embed-youtube'
+const {videoId} = Astro.props.node
+
+---
+
+<YouTubeEmbed id={`https://www.youtube.com/embed/${videoId}`} />

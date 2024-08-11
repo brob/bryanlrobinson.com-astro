@@ -1,0 +1,23 @@
+---
+import {PortableText as PortableTextInternal} from 'astro-portabletext'
+import Code from "./Code.astro";
+import UnknownType from "./UnknownType.astro"
+import Youtube from './Youtube.astro';
+const { value } = Astro.props;
+
+const components = {
+  type: {
+   
+    code: Code,
+    youtube: Youtube,
+    unknownType: UnknownType
+  },
+
+
+}
+---
+
+<PortableTextInternal
+    value={value}
+    components={components}
+/> 

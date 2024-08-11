@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: "Using Nunjucks 'If Expressions' in 11ty to create a simple active navigation state"
 date: 2020-05-06
 categories:

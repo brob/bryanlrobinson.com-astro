@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: "Adapt client-side JavaScript for use in 11ty (Eleventy) data files"
 date: 2019-09-04
 categories:

@@ -1,6 +1,5 @@
 ---
 
-layout: "layouts/post.njk"
 title: "Climbing the 11ty Performance leaderboard with Cloudinary, critical CSS and more"
 date: 2020-03-25
 categories:
