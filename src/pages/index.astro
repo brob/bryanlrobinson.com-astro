@@ -52,13 +52,14 @@ const combinedPosts = [...posts, ...sanityPosts].sort(
 		</div>
 			<div>
 				<h2 class="text-xl uppercase mb-0">Latest posts</h2>
-				<ul class="gap-3">
+				<ul class="gap-3 mb-3">
 					{
-						combinedPosts.map((post) => (
+						combinedPosts.slice(0,5).map((post) => (
 							<BlogCard post={post} />
 						))
 					}
 				</ul>
+				<a href="/blog" title="Link to more blog posts">More Posts &raquo;</a>
 			</div>
 		</main>
 		<Footer />
