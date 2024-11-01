@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { getPosts } from '../../utils/sanityClient';
-import { PortableText } from "astro-portabletext";
+
 import  BlankComponent  from '../../components/BlankComponent.astro'
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -23,7 +23,22 @@ const post = Astro.props;
 const { Content } = (post.render) ? await post?.render() : { Content: BlankComponent };
 ---
 
+<style is:global>
+	.prose ul {
+		padding-left: 1rem;
+	}
+	.prose ul > li {
+		list-style: initial;
+	}
+	.prose > * + * {
+		margin-top: 2rem;
+		margin-bottom: 0;
+	}
+
+</style>
+
 <BlogPost {...post.data}>
-	<Content value={post?.data?.body} />
-	
+	<div class="prose">
+	<Content class="prose" value={post?.data?.body} />
+</div>
 </BlogPost>
