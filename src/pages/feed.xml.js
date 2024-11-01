@@ -1,9 +1,23 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
+import { getPosts } from '../utils/sanityClient';
+
+
+
+
+
 
 export async function GET(context) {
-const blog = await getCollection('blog');
-
+    const posts = (await getCollection('blog'))
+    const sanityPosts = await getPosts()
+    
+    const combinedPosts = [...posts, ...sanityPosts].sort(
+        (a, b) => {
+            return b.data.date.valueOf() - a.data.date.valueOf()}
+    );
+    
+    
+    
   return rss({
     // `<title>` field in output xml
     title: "Bryan Robinson's Blog",
@@ -15,7 +29,7 @@ const blog = await getCollection('blog');
     // Array of `<item>`s in output xml
     // See "Generating items" section for examples using content collections and glob imports
     
-    items: blog.reverse().map((post) => ({
+    items: combinedPosts.map((post) => ({
         title: post.data.title,
         pubDate: post.data.pubDate,
         description: post.data.description,
