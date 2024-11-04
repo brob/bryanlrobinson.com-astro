@@ -30,6 +30,9 @@ const { Content } = (post.render) ? await post?.render() : { Content: BlankCompo
 	.prose ul > li {
 		list-style: initial;
 	}
+	.prose p {
+		margin-bottom: 0;
+	}
 	.prose > * + * {
 		margin-top: 2rem;
 		margin-bottom: 0;
