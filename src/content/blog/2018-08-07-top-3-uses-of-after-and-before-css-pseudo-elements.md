@@ -50,7 +50,7 @@ If you want to give your users a little more visual information about what link 
 
 Add an "external link" icon to links that aren't absolute links.
 
-{% highlight css %}
+```css
 a[href^="http"]::after {
     background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/161359/open-in-new.svg);
     background-size: contain;
@@ -60,19 +60,19 @@ a[href^="http"]::after {
     width: 1em;
     height: 1em;
 }
-{% endhighlight %}
+```
 
 In this code, we find any anchor tag that has an href element that begins with http. This assumes you write your internal links as relative paths.
 
 Another good use case for this method would be for PDFs.
 
-{% highlight css %}
+```css
 a[href$=".pdf"]::after {
     content: " (pdf)";
     font-size:  .8em;
     color: tomato;
 }
-{% endhighlight %}
+```
 
 For any href that ends in .pdf, we can append the string " (pdf)." This ::after element is easier to control than the image, as we've got full CSS control and can adjust font size, color and any other property.
 
@@ -88,7 +88,7 @@ For more information on the black magic of these selectors, [read this awesome p
 
 Until the [Houdini Paint API](https://developers.google.com/web/updates/2018/01/paintapi) hits all browsers, you may feel stuck with very boring borders for your elements. Using simple CSS and ::before and ::after, you can bring some interesting ideas to all browsers.
 
-{% highlight css %}
+```css
 .related-article {  
     padding: 20px;
     position: relative;
@@ -109,7 +109,7 @@ Until the [Houdini Paint API](https://developers.google.com/web/updates/2018/01/
     width: calc(100% - 20px);
     height: calc(100% - 20px);
 }
-{% endhighlight %}
+```
 
 In this example, we apply a background gradient to the parent element and use a ::before element to "cut out" the interior with a simple background color. This gives the appearance  of a border despite being two rectangles. To get the sizing right for your border, just requires some simple math.
 
@@ -134,7 +134,7 @@ Instead of a full border, what if we want our headlines to have fancy small bord
 
 We can use an ::after element to accomplish that.
 
-{% highlight css %}
+```css
 .cool-border::after {
     content: "";
     display: block;
@@ -150,7 +150,7 @@ We can use an ::after element to accomplish that.
 .cool-border {
     position: relative;
 }
-{% endhighlight %}
+```
 
 
 In this example, we also position a pseudo element absolute. The size of our "border" is dictated by the height of the new element. If this were a right or left "border" you would use the elements width to determine the size.

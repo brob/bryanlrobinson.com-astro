@@ -35,7 +35,7 @@ Whether we write our form processing ourselves or outsource it to a third party,
 
 For this example, we'll assume a simple contact form.
 
-{% highlight html %}
+```html
 
 <form name="contact-form" action="/thank-you" netlify>  
     <label for="name">Name: <input type="text" name="name"></label>  
@@ -56,7 +56,7 @@ For this example, we'll assume a simple contact form.
     </label>  
     <button type="submit">Send Message</button>  
 </form>
-{% endhighlight %}
+```
 
 This form will capture a few pieces of information from the user: name, email, phone number and a message. The form will also have a `select` field that will allow a user to select a "department" from a dropdown. For ease of processing, we'll allow the value of each `option` to be the email address we want to send the email to.
 
@@ -126,9 +126,9 @@ First, we have to configure our project to use Netlify Functions. The easiest wa
 
 Run the following and it will set things up for you:
 
-{% highlight bash %}
+```bash
 netlify functions:create --name contact-route
-{% endhighlight %}
+```
 
 From there, you can choose the "Hello World" examples and replace the basic example with our new handler.
 
@@ -140,14 +140,14 @@ First, set up an account with SendGrid. From there, you'll need an API key for y
 
 Next, we'll need to grab the Node SendGrid package.
 
-{% highlight bash %}npm install --save @sendgrid/mail{% endhighlight %}
+```bashnpm install --save @sendgrid/mail```
 
 In our `contact-route.js` function, we'll need to include the SendGrid package and initialize the script with our API key.
 
-{% highlight js %}
+```js
 const sgMail = require('@sendgrid/mail');  
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-{% endhighlight %}
+```
 
 ### Parse the Form Submission
 
@@ -155,23 +155,23 @@ Inside our handler function, we'll want to parse the form data in a way that wil
 
 Netlify's form webhook will send us the data as the event's body. We'll need to turn that data into JSON.
 
-{% highlight js %}
+```js
 let formData = JSON.parse(event.body).data;
-{% endhighlight %}
+```
 
 Next, we'll want to format an HTML string that SendGrid will use as the body of our email. We can do a lot of nice formatting here with some simple HTML and JS template literals.
 
-{% highlight js %}
+```js
 let html = `<h1>Form submission from ${formData.name}</h1>  
                <p><strong>Email Address:</strong> ${formData.email}</p>  
                <p><strong>Phone Number:</strong> ${formData.phone ? formData.phone : 'Not Submitted'}</p>  
                <p><strong>Message:</strong> ${formData.message}</p>`;
-{% endhighlight %}
+```
 
 
 Finally, we build the options for SendGrid and then invoke SendGrid's `send()` method with the options.
 
-{% highlight js %}
+```js
 const msg = {  
        to: formData.department,  
        from: formData.email,  
@@ -181,12 +181,12 @@ const msg = {
      };  
 
      sgMail.send(msg);
-{% endhighlight %}
+```
 
 
 The final function is only 20 lines long.
 
-{% highlight js %}
+```js
 
 'use strict';  
 const sgMail = require('@sendgrid/mail');  
@@ -209,7 +209,7 @@ const msg = {
      };  
      sgMail.send(msg);  
 }
-{% endhighlight %}
+```
 
 
 ### Setting Up the Outgoing Webhook in Netlify

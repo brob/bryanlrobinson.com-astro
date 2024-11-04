@@ -58,16 +58,16 @@ In 11ty, we add our custom filters in our `.eleventy.js` config file, but we can
 
 My config file looks like this:
 
-{% highlight js %}
+```js
 module.exports = function(config) {  
    config.addFilter("svgContents", require("./filters/svgContents.js"));
    // The rest of my config down here
 }
-{% endhighlight %}
+```
 
 Then, I put the filter itself in the `contents.js` file as a `module.export`.
 
-{% highlight js %}
+```js
 const fs = require('fs');  
 
 module.exports = function(file) {  
@@ -81,13 +81,13 @@ module.exports = function(file) {
   return data.toString('utf8')  
 }
 
-{% endhighlight %}
+```
 
 To use our filter in the template, we'll use the following syntax (in Nunjucks and Liquid): 
 
-{% highlight html %}
+```html
 {{ "/string/to/svg.svg" | svgContents }}
-{% endhighlight %}
+```
 
 By default, 11ty will accept the value of our variable in the template as the first argument of our function.
 
@@ -103,19 +103,19 @@ There are better people than me to explain the intricacies of a proper setup for
 
 The contents of our 11ty config file should look very similar:
 
-{% highlight js %}
+```js
 const svgContents = require("./src/getSvgContents");  
 
 module.exports = function(eleventyConfig) {  
     eleventyConfig.addFilter("svgContents", svgContents);  
 };
-{% endhighlight %}
+```
 
 The file paths have changed, but the theory is still the same. We add our filter to the `eleventyConfig` object. The contents of our our module will be injected into the main 11ty config file in the final use.
 
 While we're making small changes, let's add a few protections for the code: 
 
-{% highlight js %}
+```js
 const fs = require('fs');  
 const path = require('path');  
 
@@ -133,7 +133,7 @@ module.exports = function(file) {
     });  
     return data.toString('utf8')  
 }
-{% endhighlight %}
+```
 
 We've added an error check early in the process. If the file extension isn't `.svg`, we'll exit with an error that will show up in the console. It's always helpful to know why your site build fails. 
 
@@ -145,33 +145,33 @@ That's it. We publish this to NPM and we can now install it in our project.
 
 ### 1\. Install the package
 
-{% highlight bash %}
+```bash
 npm install --save eleventy-plugin-svg-contents
-{% endhighlight %}
+```
 
 ### 2\. Require the package in our config file
 
-{% highlight js %}
+```js
 const svgContents = require("eleventy-plugin-svg-contents");
-{% endhighlight %}
+```
 
 ### 3\. Register the plugin
 
-{% highlight js %}
+```js
 module.exports = function(config) {  
    config.addPlugin(svgContents);  
 
 // Everything else
 }
-{% endhighlight %}
+```
 
 ### 4\. Use the filter in our templates
 
 In any Nunjucks or Liquid template, use a variable notation: 
 
-{% highlight html %}
+```html
 {{ "/string/to/svg.svg" | svgContents }}
-{% endhighlight %}
+```
 ## 11ty makes this super easy and fun
 
 If you've made an 11ty filter or custom tag, you can abstract them out to package to bring your favorite configuration options with you between projects.

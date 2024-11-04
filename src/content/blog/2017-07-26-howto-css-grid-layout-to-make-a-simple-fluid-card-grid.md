@@ -47,7 +47,8 @@ In this example, I've got a simple card with a title, photo, description and lin
 Place all the .card items inside a .card-container element.
 
 <div class="pull-1">
-{% highlight html %}
+
+```html
 <section class="card-container">
     <article class="card">
         <header class="card__title">
@@ -62,7 +63,7 @@ Place all the .card items inside a .card-container element.
         <a href="#" class="button">Call to Action</a>
     </article>
 </section>
-{% endhighlight %}
+```
 </div>
 
 {% include ad-space.html %}
@@ -71,7 +72,8 @@ Place all the .card items inside a .card-container element.
 
 In this case, I chose very simple style elements. You can style your cards however you would like. Keep in mind that your styles and cards should work at multiple sizes, as we're building a fluid grid. Don't use direct pixel values to avoid odd spacing.
 
-{% highlight css %}
+
+```css
 .card {
     box-shadow: 0px 1px 5px #555;
     background-color: white;
@@ -93,8 +95,7 @@ In this case, I chose very simple style elements. You can style your cards howev
     text-align: center;
     transition: .3s ease-out;
 }
-{% endhighlight %}
-
+```
 ## Step 3: Define your Grid
 
 We'll start by changing the display value of our .card-container from "block" to "grid." This will create the grid context for the cards.
@@ -108,9 +109,14 @@ Instead, we'll use the power of some special keywords to create a fluid amount o
 First, we'll use the "repeat()" function. repeat() takes two arguments: number of times to repeat and the value to repeat.
 
 For Example:
-{% highlight css %}grid-template-columns: repeat(3, 100px){% endhighlight %}
+```css 
+grid-template-columns: repeat(3, 100px)
+```
 will compute to
-{% highlight css %}grid-template-columns: 100px 100px 100px{% endhighlight %}
+```css
+grid-template-columns: 100px 100px 100px
+```
+
 
 ### 3B: auto-fit
 
@@ -122,33 +128,33 @@ Replacing the size value in our repeat() function will be a minmax() function. m
 
 In our example, we want our cards to be able to size down to fit in mobile (I use 320px for this) and size up to be a fraction of the space available. Thus, our minmax() function will be
 
-{% highlight css %}
+
+```css
 minmax(320px, 1fr)
-{% endhighlight %}
+```
 
 Put all this together and you get a CSS declaration block that looks like this:
 
-{% highlight css %}
+```css
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
-{% endhighlight %}
-
+```
 ## Step 4: Spacing
 
 We now have a fluid grid, but all our cards are jammed together. Instead of reaching for our old stand-by "margin," we'll use another new property: grid-gap.
 
 Grid-gap will place a space between the tracks of our grid (columns and rows). This doesn't add space around the grid, so we'll couple that with some padding of our container. Our CSS is now complete and looks like this:
 
-{% highlight css %}
+```css
 .card-container {
     display: grid;
     padding: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1rem;
 }
-{% endhighlight %}
+```
 
 
 And voila! A fluid, responsive grid created with no breakpoints.

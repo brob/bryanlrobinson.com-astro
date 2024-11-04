@@ -51,20 +51,22 @@ We all know this design pattern: full width background and nice promotional cont
 
 We set up very simple markup:
 
-{% highlight html %}
+
+```html
 <section class="stripe">
     <h1>Check this regular stripe</h1>
     <p>If you're wanting to get into punk-rock design, rotated areas are really cool and you'll look hip and cool.</p>
 </section>
-{% endhighlight %}
+```
+
 Add a pinch of very simple CSS and we're done.
 
-{% highlight css %}
+```css
 .stripe {
     background-image: linear-gradient(240deg, #eaee44, #90ec19);
     padding: 5rem;   
 }
-{% endhighlight %}
+```
 
 This is a lovely serviceable stripe of content. You also get to dig on a nice linear-gradient while you're there.
 
@@ -74,14 +76,14 @@ This is a lovely serviceable stripe of content. You also get to dig on a nice li
 
 The transform CSS property has a load of great functions. One of the easiest functions to use is rotate(). It takes an angle unit such as 45deg and rotates the element by that amount. A positive integer is a clockwise turn and negative is a counter-clockwise turn.
 
-{% highlight css %}
+```css
 .stripe {
     background-image: linear-gradient(240deg, #eaee44, #90ec19);
     padding: 5rem;
     
     transform: rotate(-5deg);
 }
-{% endhighlight %}
+```
 
 You'll notice from the photo that this introduces an issue. This is still a rectangle and by rotating the rectangle, we see the corners.
 
@@ -95,14 +97,14 @@ By taking the same angle we used in our rotate() function, we can skew the eleme
 
 The transform property can take multiple functions, so we apply it on the same line of CSS.
 
-{% highlight css %}
+```css
 .stripe {
     background-image: linear-gradient(240deg, #eaee44, #90ec19);
     padding: 5rem;
     
     transform: rotate(-5deg) skew(-5deg);
 }
-{% endhighlight %}
+```
 
 The discerning designer eye will notice one more issue with our implementation. The text is now skewed. This may be something you want. The skewed text bothers me slightly, so let's unskew it.
 
@@ -117,17 +119,17 @@ Chances are decent, you had a container here anyway to set a width on your conte
 By applying a skew of the negative angle we've been using, the text will re-skew back to its initial angle. You can also use this method to un-rotate the text, as well, if that's your need.
 
 Full Markup:
-{% highlight html %}
+```html
 <section class="stripe">
     <div class="stripe__content">
         <h1>Check this rotation with the straight edges and non-skewed text!!!</h1>
         <p>If you're wanting to get into punk-rock design, rotated areas are really cool and you'll look hip and cool.</p>
     </div>
 </section>
-{% endhighlight %}
+```
 
 Full CSS:
-{% highlight css %}
+```css
 .stripe {
     background-image: linear-gradient(240deg, #eaee44, #90ec19);
     padding: 5rem;
@@ -137,7 +139,7 @@ Full CSS:
 .stripe__content {
     transform: skew(5deg);
 }
-{% endhighlight %}
+```
 
 
 This gives us clean lines with a hint of punk rock. [See this in action on CodePen](https://codepen.io/brob/pen/xpNyqE?editors=1100).

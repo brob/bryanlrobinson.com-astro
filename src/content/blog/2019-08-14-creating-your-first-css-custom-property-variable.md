@@ -32,7 +32,7 @@ Just want the code? [Checkout this CodePen with all the code from the blog post 
 
 We'll start by defining out our basic styles for our anchor tag. In this example, anything with the class `button` will be styled as a "button" with a light red background and rounded corners. 
 
-{% highlight css %}
+```css
 
 .button {
     background-color:#ff6347;
@@ -43,7 +43,7 @@ We'll start by defining out our basic styles for our anchor tag. In this example
     text-decoration: none;
     text-align: center;
 }
-{% endhighlight %}
+```
 
 From here, we need to take the values we want to make easily editable and convert them to Custom Properties.
 
@@ -55,7 +55,7 @@ First we need to define out our variables. With Custom Properties, we can define
 
 To declare a variable, you need to be inside a declaration block. Then you use the syntax `--variable-name`. Your variable name can be any string with no spaces (dashes and underscores are acceptible). In our button example, our variable declarations look like this:
 
-{% highlight css %}
+```css
 :root {
     --button-background:#ff6347;
     --button-foreground:#ffffff;
@@ -63,13 +63,13 @@ To declare a variable, you need to be inside a declaration block. Then you use t
     --button-padding: .5rem 1rem;
     --button-corners: 3px;
 }
-{% endhighlight %}
+```
 
 Mostly, we're isolating the properties we'll want to change later, like colors.
 
 Next up, we need to access these variables in our `.button` declaration.
 
-{% highlight css %}
+```css
 .button {
     background-color: var(--button-background);
     color: var(--button-foreground);
@@ -79,7 +79,7 @@ Next up, we need to access these variables in our `.button` declaration.
     text-decoration: none;
     text-align: center;
 }
-{% endhighlight %}
+```
 
 And we're done! This class now uses CSS Custom Properties!
 
@@ -91,7 +91,7 @@ Let's say we want to change our button in various ways for special use cases. Th
 
 The old way of handling this would be to have our `.special` class and then also have a `.special .button` selector.
 
-{% highlight css %}
+```css
 .special {
    /* Code for our special area */
 }
@@ -101,13 +101,13 @@ The old way of handling this would be to have our `.special` class and then also
     background-color: lightblue;
     color: #333;
 }
-{% endhighlight %}
+```
 
 Nothing wrong with this, but we're adding to our selector bloat. We could also make a completely new class for our special button, such as `.button--special` and change our HTML.
 
 Instead, we can now create a new scope for our variables and change their values directly in our `.special` declaration.
 
-{% highlight css %}
+```css
 
 .special {
    /* Code for our special area */
@@ -115,7 +115,7 @@ Instead, we can now create a new scope for our variables and change their values
     --button-foreground: #333;
     --button-display: block;
 }
-{% endhighlight %}
+```
 
 The element that has `class="special"` is actually the parent of our button. By setting the variables on this selector, it filters down to our button without having to declare the button class. This is handy  for managing specificity and setting up component-based styles a little bit easier.
 
@@ -129,7 +129,7 @@ With CSS Variables, it becomes a bit more painless.
 
 We'll start by creating two new Custom Properties on our `:root` element.
 
-{% highlight css %}
+```css
 :root {
     --color:#333333;
     --bg-color:#ffffff;
@@ -141,7 +141,7 @@ We'll start by creating two new Custom Properties on our `:root` element.
     --button-padding: .5rem 1rem;
     --button-corners: 3px;
 }
-{% endhighlight %}
+```
 
 These two new variables will give us control over our text color and our main background color.
 
@@ -149,12 +149,12 @@ Then we have two options for setting up our dark mode.
 
 First let's look at setting these properties in JavaScript.
 
-{% highlight js %}
+```js
    document.documentElement.style.setProperty('--color', '#fff');  
    document.documentElement.style.setProperty('--bg-color', '#333');  
    document.documentElement.style.setProperty('--button-background', '#7d483e');  
    document.documentElement.style.setProperty('--button-foreground', '#eee');`
-{% endhighlight %}
+```
 
 Let's break that down a bit. Each line is setting a CSS property by using the `setProperty()` method. `setProperty()` takes two arguments: a CSS property and a value. In this case, we're treating our Custom Properties as any other property and we can set them.
 
@@ -162,20 +162,20 @@ To get to the style object -- what's now being built as the "CSS Object Model" -
 
 For dark mode, this would get tedious pretty fast, though. So, let's take a look at option number two: CSS with a class toggle.
 
-{% highlight css %}
+```css
 .darkMode {
     --button-background: #7d483e;
     --button-foreground: #eee;
     --color: #fff;
     --bg-color: #333;
 }
-{% endhighlight %}
+```
 
 Now, in our JavaScript, we can toggle the class `darkMode` on our `<body>` element to activate dark mode. This will change the global scope of those variables, so that anything accessing them will get updated.
 
 After that, we can set up a toggle in JS.
 
-{% highlight js %}
+```js
 let darkModeToggle = document.querySelectorAll('.darkModeToggle');
 let body = document.querySelector('body');
 
@@ -183,7 +183,7 @@ darkModeToggle.forEach(toggler => toggler.addEventListener('click', e => {
     e.preventDefault();
     body.classList.toggle('darkMode')
 }));
-{% endhighlight %}
+```
 
 If setting these variables in JS seems tedious in that example, why would we want to use it in any scenario?
 
@@ -202,7 +202,7 @@ In our current example, we'll take background color, text color, button colors, 
 
 With these in mind, we'll create an HTML form with IDs that match our Custom Property names for each type of change. To add extra spice, let's use HTML inputs like color pickers and range sliders!
 
-{% highlight html %}
+```html
     <form action="" class="theme-change">
         <h4>Page options</h4>
         <label for="" >page background-color</label>
@@ -225,11 +225,11 @@ With these in mind, we'll create an HTML form with IDs that match our Custom Pro
         <label>Border Radius:</label>
         <input data-suffix="true" type="range" id="button-corners" min="0" max="25" value="10">
     </form>
-{% endhighlight %}
+```
 
 From there, we need to find our form fields and apply event handlers.
 
-{% highlight js %}
+```js
 const inputs = Array.from(document.querySelectorAll('.theme-change input, .theme-change select')); // Create an array of form fields
 
 inputs.forEach(input => { 
@@ -237,7 +237,7 @@ inputs.forEach(input => { 
     input.addEventListener('change', handleUpdate);
     input.addEventListener('mousemove', handleUpdate);
 });
-{% endhighlight %}
+```
 
 We add a `change` event listener for handling most of the form interactions, but if we want live changes from our `range` inputs, we need to also have a `mousemove` event listener.
 
@@ -245,12 +245,12 @@ Our first minor protection is to deal with units. In this simple example, we onl
 
 After we get the new value from our form input, we need to set the property. Much like our dark mode example, we'll use `document.documentElement.style.setProperty`. In this case, we'll dynamically find the right property by pulling the ID of our field and prepending `--` to the beginning.
 
-{% highlight js %}
+```js
 function handleUpdate(e) {
     let newValue = this.dataset.suffix ? `${this.value}px` : this.value; // Add px to input values that have a data-suffix attribute
     document.documentElement.style.setProperty(`--${this.id}`, newValue);
 }
-{% endhighlight %}
+```
 
 That function handles updating the theme. Having default values in our form would also make sense. We can set those values, as well, based on our Custom Properties! You may have noticed the `setInitialValues(input);` line in our `inputs.forEach`.
 
@@ -258,13 +258,13 @@ The first step is to grab the proper property. To do that, we have to run the [`
 
 We then need to add `px` to any of the suffixed input values and then update our input's value.
 
-{% highlight js %}
+```js
 function setInitialValues(input) {
     let cssProperty = getComputedStyle(document.documentElement).getPropertyValue(`--${input.id}`);
     let updatedValue = input.dataset.suffix ? cssProperty.replace("px", "") : cssProperty;
     input.value = updatedValue;
 }
-{% endhighlight %}
+```
 
 All this JavaScript works with the Custom Properties we've already written in this post. 
 

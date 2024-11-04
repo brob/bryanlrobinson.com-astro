@@ -142,12 +142,11 @@ In 2018, CSS selectors are more than element selectors, ID selectors and class s
 
 The :not selector is a great exclusionary selector. When you want all list items that are NOT active
 
-{% highlight css %}
+```css
 li:not(.active) {
     color: red;
 }
-{% endhighlight %}
-
+```
 Sibling selectors are also quite powerful. There are adjacent siblings (siblings next to each other in the source) and general siblings (may be seperated by other siblings).
 
 I use sibling selectors in this [example of a CSS-only mobile navigation](https://bryanlrobinson.com/blog/2017/08/02/css-only-mobile-slide-out-navigation/). Adjacent siblings are the basis for the "lobotomized owl" reset pattern `* + *`

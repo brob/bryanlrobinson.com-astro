@@ -49,8 +49,7 @@ I won't dive into too many details, but here's a snippet of some of the CSS I'm 
 
 </aside>
 
-{% highlight scss %}
-
+```scss
 .post {
     /* Sets this to be a grid,
     defines the columns and adds margin between rows */
@@ -75,7 +74,7 @@ aside {
     grid-column: span 2;
 }
 
-{% endhighlight %}
+```
 
 <aside class="subhead">
     <h2>A couple example posts</h2>
@@ -110,8 +109,7 @@ The Feature Query now looks like this (could be more elegant, but my libsass doe
     <p>Thanks to the excellent <a href="https://twitter.com/gregwhitworth" title="Greg Whitworth's twitter account">@gregwhitworth</a> on Twitter, I have a much better feature query that will allow Edge to see the Grid when the newest version releases. Updated to the right. </p>
 </aside>
 
-{% highlight scss %}
-
+```scss 
 @supports (grid-auto-rows: 1px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -121,7 +119,6 @@ The Feature Query now looks like this (could be more elegant, but my libsass doe
         width: auto;
     }
 }
-
-{% endhighlight %}
+```
 
 I originally ended the post by sarcastically saying "Thanks Microsoft." As it turns out, this isn't the worst thing in the world with the May 24th @supports update. So, "Thanks Microsoft for having someone looking out for us."

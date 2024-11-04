@@ -59,7 +59,7 @@ If a bot can't easily scrape your site, your search rankings will go down. If a 
 
 So, why is it that more and more apps and websites look like this:
 
-{% highlight html %}
+```html
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +74,7 @@ So, why is it that more and more apps and websites look like this:
 </body>
 </html>
 
-{% endhighlight %}
+```
 
 I think the simple answer is that we get a lot of power from new methods and don't want to have to think about old methods. That's a simplistic take, but it's not far from the mark.
 
@@ -139,11 +139,11 @@ Let's look at the case of a clickable element. What HTML element should you use 
 
 Let's get this out of the way first. Although you can write this code and have it work, don't do this:
 
-{% highlight html %}
+```html
 
 <span onclick="runFunction();">Click me!</span>
 
-{% endhighlight %}
+```
 
 Full stop. Don't do it. I feel like this shouldn't have to be said, but I've seen it too much in the wild...
 
@@ -165,7 +165,7 @@ I mentioned in the intro that HTML is descriptive and that the descriptiveness m
 
 Imagine a blog post written like this:
 
-{% highlight html %}
+```html
 
   <div class="article">  
       <div class="big-header">Headline for my story</div>  
@@ -173,7 +173,7 @@ Imagine a blog post written like this:
       <div class="secondary-header">Section headline for my story</div>  
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat lorem dolor. Aliquam volutpat aliquet sollicitudin. Praesent venenatis pulvinar mi, vel elementum neque fringilla eu. Cras sodales neque vel ultricies condimentum. Duis a ante id felis egestas bibendum at vitae justo.</p>  
   </div>
-{% endhighlight %}
+```
 
 This may seem like a strawman argument, but I've seen instances of  this too often.
 

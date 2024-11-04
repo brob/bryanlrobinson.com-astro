@@ -33,7 +33,7 @@ First things first, we need HTML in a new Pen. We don't want to actually add thi
 
 We'll write our HTML in the JS panel.
 
-{% highlight js %}
+```js
 const el = ( domstring ) => {
     const html = new DOMParser().parseFromString( domstring , 'text/html');
     return html.body.firstChild;
@@ -44,7 +44,7 @@ let watermark = `<a href="https://bryanlrobinson.com" class="watermark">
                  </a>`
 
 document.body.append(el(watermark));
-{% endhighlight %}
+```
 
 In this code, we're defining a new function to create an element from a string of HTML, defining the string, and appending it to the body.
 
@@ -64,17 +64,17 @@ First, we'll position the element at the bottom right and have it be `fixed` to 
 
 By default, since this is the last item on the page, it should appear at the top of most `z-index` stacking contexts.
 
-{% highlight css %}
+```css
 .watermark {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
 }
-{% endhighlight %}
+```
 
 From there, we also want to add an opacity to the element, so that it's unobtrusive, and add a slight transition that we'll utilize with a hover state to full opacity.
 
-{% highlight css %}
+```css
 .watermark {
     position: fixed;
     bottom: 1rem;
@@ -86,7 +86,7 @@ From there, we also want to add an opacity to the element, so that it's unobtrus
 .watermark:hover {
     opacity: 1;
 }
-{% endhighlight %}
+```
 
 Now that we have something that looks right in this pen, it's time to add it to our other pens.
 

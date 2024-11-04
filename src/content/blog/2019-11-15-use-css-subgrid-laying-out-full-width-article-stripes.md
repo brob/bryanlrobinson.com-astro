@@ -36,7 +36,7 @@ Let's dive in to the code.
 
 Our first task will be setting up our article's basic Grid. In this case, we'll take advantage of the power of Grid's "named grid lines" to make our lives easier down the road.
 
-{% highlight css %}
+```css
 .article-body {
     display: grid;
     grid-template-columns: [fullWidth-start] 1rem 
@@ -45,7 +45,7 @@ Our first task will be setting up our article's basic Grid. In this case, we'll 
                            [article-end left-end] 1fr 
                            [right-end] 1rem [fullWidth-end];
 }
-{% endhighlight %}
+```
 
 This setup gives us `1rem` gutters on the left and right hand side, followed by "[variably squishy](https://blog.logrocket.com/examining-squishiness-in-intrinsic-web-design-1005d30dda0c/)" gutters of `1fr`. Finally, we have a center column with a minimum size of `20ch` and a maximum of `80ch`. The `ch` unit giving us a comfortable reading line-length for the center column.
 
@@ -61,7 +61,7 @@ Now that our grid is set up, we need to place content on it properly. Any elemen
 
 Let's fix that by putting any direct child into the `article` grid column.
 
-{% highlight css %}
+```css
 .article-body > * {
     grid-column: article;
 }
@@ -69,7 +69,7 @@ Let's fix that by putting any direct child into the `article` grid column.
     grid-column: fullWidth;
     background-color: lightblue; /* For that full-width feeling! */
 }
-{% endhighlight %}
+```
 
 Now our general content will be in a nice constrained column and any element with `class="full-width"` will go in a full-width stripe.
 
@@ -83,12 +83,12 @@ The `subgrid` specification gives us access to the initial grid declaration's co
 
 In our use case, we just need the columns. 
 
-{% highlight css %}
+```css
    .full-width {
         display: grid;
         grid-template-columns: subgrid;
    }
-{% endhighlight %}
+```
 
 That's it! we now get all of the columns that were declared on `.article-body`.
 
@@ -96,7 +96,7 @@ Let's use those named lines and create some classes that we can use for various 
 
 ![Boxes placed inside the full-width element using the grid-column declarations below](/images/subgrid-visualization-child.png)
 
-{% highlight css %}
+```css
 .fullWidth-center {
     grid-column: article;
 }
@@ -107,7 +107,7 @@ Let's use those named lines and create some classes that we can use for various 
 .fullWidth-left {
     grid-column: left;
 }
-{% endhighlight %}
+```
 
 When we put it all together, we can create some interesting layouts with minimal effort!
 
@@ -134,7 +134,7 @@ Let's talk about what we need to change.
 
 First, let's declare a base style for `.full-width`. We'll use one of my favorite unexpected design patterns: [the self-centering stripe with grid](https://bryanlrobinson.com/blog/use-css-grid-to-create-full-width-background-with-centered-content/).
 
-{% highlight css %}
+```css
 .full-width {
     grid-column: fullWidth; /* Sets where the element is in the parent grid */
     background-color: lightblue; /* Pretty light blue! */
@@ -145,11 +145,11 @@ First, let's declare a base style for `.full-width`. We'll use one of my favorit
 
     padding: 1rem; /* Keeps gutters in shape for mobile */
 }
-{% endhighlight %}
+```
 
 Now, we'll use the power of CSS Feature Queries to fall forward into subgrid support. In order to do this, we'll unset a few values from the previous code and put our subgrid code in the CSS.
 
-{% highlight css %}
+```css
 @supports (grid-template-columns: subgrid) {
     .full-width {
         grid-template-columns: subgrid; /* changes columns from 1 to inheriting grid lines */
@@ -167,7 +167,7 @@ Now, we'll use the power of CSS Feature Queries to fall forward into subgrid sup
         grid-column: left;
     }
 }
-{% endhighlight %}
+```
 
 You now have an interesting layout in browsers that support subgrid and a perfectly lovely layout for browsers that don't.
 

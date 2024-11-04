@@ -26,18 +26,18 @@ An idea snuck up on me when I was creating a centered column of text inside of a
 
 Traditionally, this would be solved with adding an additional `<div>` in our markup. The HTML would look like this.
 
-{% highlight html %}
+```html
 <section class="stripe">
     <div class="stripe__content">
         <h1>Hello Stripe world</h1>
         <p>More stripe content can go here ...</p>
     </div>
 </section>
-{% endhighlight %}
+```
 
 We use the outside `<section>` to apply the background color and the interior `<div>` to size and center the content. This is by no means a crisis of markup. The CSS is relatively clean, as well.
 
-{% highlight css %}
+```css
 .stripe {
     background-color: lavender;
     padding: 2rem 0;
@@ -47,7 +47,7 @@ We use the outside `<section>` to apply the background color and the interior `<
     max-width: 1200px;
     margin: auto;
 }
-{% endhighlight %}
+```
 
 Because this wasn't a large transgression, I'd never thought about utilizing CSS Grid for this purpose. I've used Grid to create full-width stripes inside of other designs, but never for somethign this simple.
 
@@ -55,14 +55,14 @@ The lightning bolt of this application caught me completely off guard. Even thou
 
 A colored stripe, with a width-restricted set of content with no additional markup!
 
-{% highlight html %}
+```html
 <section class="stripe">
     <h1>Hello Stripe world</h1>
     <p>More stripe content can go here ...</p>
 </section>
-{% endhighlight %}
+```
 
-{% highlight css %}
+```css
 .stripe {
     display: grid;
     grid-template-columns: minmax(auto, 1200px);
@@ -71,7 +71,7 @@ A colored stripe, with a width-restricted set of content with no additional mark
     background-color: lavender;
     padding: 2rem 1rem;
 }
-{% endhighlight %}
+```
 
 This method creates one column for our grid. It has a minumum size of `auto` to allow it to shrink based on its content and a maximum size of 1200px. This creates the appropriately sized elements. We use `justify-content` instead of dealing with `auto` margins. In this method, we need a left/right padding for our mobile widths.
 

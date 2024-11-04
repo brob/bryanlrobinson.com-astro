@@ -36,8 +36,8 @@ Take this simple promotional grid layout for example.
 
 To make this happen, we have to introduce a slew of markup to add rows inside of rows.
 
-{% highlight html %}
 
+```html
 <section class="flexgrid">
 <div class="left-side">
     <div class="item">1</div>
@@ -56,23 +56,21 @@ To make this happen, we have to introduce a slew of markup to add rows inside of
 
 </div>
 </section>
-{% endhighlight %}
+```
 
 Keeping track of the nesting is a headache. It also fights against clean, semantic HTML. 
 
 Let's take the same design and build out the HTML we need for CSS Grid.
 
-{% highlight html %}
 
+```html
 <section class="grid">
     <div class="grid__item">1</div>
     <div class="grid__item">2</div>
     <div class="grid__item">3</div>
     <div class="grid__item">4</div>
 </section>
-
-{% endhighlight %}
-
+```
 With one parent and four direct children, we can pull off uneven rows and columns. 
 
 The promise of Grid Layout is the promise of semantic markup and true separation of concerns.
@@ -93,7 +91,8 @@ In this example, we want the street address and comment box to have more room fo
 
 By creating a "fullwidth" class that uses grid-column: span 2, we can have a single input change its layout. The other inputs that can be smaller remain side by side.
 
-{% highlight css %}
+
+```css
 .form {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -102,7 +101,7 @@ By creating a "fullwidth" class that uses grid-column: span 2, we can have a sin
 .fullwidth {
     grid-column: span 2;
 }
-{% endhighlight %}
+```
 
 [View the example on CodePen](https://codepen.io/brob/pen/BYyrjw?editors=1100)
 
@@ -114,24 +113,24 @@ If you want to take a baby step into Grid, try recreating your 12-column Bootstr
 
 Start with a simple grid declaration and setup.
 
-{% highlight css %}
+```css
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-column-gap: 10px;
 }
-{% endhighlight %}
+```
 
 From there, you can set up classes that span various column counts.
 
-{% highlight css %}
+```css
 .span3 {
     grid-column: span 3;
 }
 .span9 {
     grid-column: span 9;
 }
-{% endhighlight %}
+```
 
 I bet you can figure out the rest.
 
@@ -149,4 +148,3 @@ More than anything else, this represents a shift in the way we develop websites.
 
 Whatever strategy you implement to learn Grid, start learning it.
 
-{% include ad-space.html %}

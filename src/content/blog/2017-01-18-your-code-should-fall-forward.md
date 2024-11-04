@@ -70,8 +70,7 @@ Let's get started. As an example, let's take a simple design form: an article li
 
 Our first step is simple, clean markup. This, out of the box, works on all browsers and devices. Each article has a headline, description and link.
 
-{% highlight html %}
-
+```html 
 <section class="grid">
     <article class="item primary">
         <time class="date">12 Jan, 2017</time>
@@ -80,8 +79,7 @@ Our first step is simple, clean markup. This, out of the box, works on all brows
         <a href="http://bryanlrobinson.com/blog/2017/01/12/simple-grid-examples/" class="button">Read More</a>
     </article>
 </section>
-
- {% endhighlight %}
+```
 
 ![Plain HTML](/images/blog/fall-forward/plain-html.png)
 
@@ -89,8 +87,7 @@ Not exactly revolutionary.
 
 Next, we add simple styling, clean the margins and make it look good on mobile.
 
-{% highlight scss %}
-
+```scss
     .grid {
         margin: 10px 0;
     }
@@ -101,8 +98,7 @@ Next, we add simple styling, clean the margins and make it look good on mobile.
         padding: 5vw;
         background-color: $brand-light;
     }
-
-{% endhighlight %}
+```
 
 ![With some simple styling](/images/blog/fall-forward/simple-style.png)
 
@@ -112,8 +108,7 @@ When we've got more screen real estate than mobile, we expand into layout. In ou
 
 In this example, we use media queries to affect the flex-basis to adjust the size of these boxes.
 
-{% highlight scss %}
-
+```scss
 @media (min-width: 480px) {
     .grid {
         display: flex;
@@ -134,9 +129,7 @@ In this example, we use media queries to affect the flex-basis to adjust the siz
         flex-basis: calc(25% - 10px);
     }
 }
-
-
-{% endhighlight %}
+```
 ![A collage of sizes ](/images/blog/fall-forward/collage-sizes.png)
 
 If this sounds like "mobile-first design," you're right. Mobile is a very restrictive place for design. It's also very restrictive for powerful hardware available cheap. This means we need to put a premium on the content, not the "design."
@@ -153,9 +146,7 @@ CSS Grid Layout is something I've written about recently. I've even begun using 
 
 Let's make an impactful layout for our articles using some fun new code.
 
-{% highlight scss %}
-
-
+```scss
 @supports (grid-auto-rows: 1px) {
     @media (min-width: 1100px) {
         .grid {
@@ -187,9 +178,7 @@ Let's make an impactful layout for our articles using some fun new code.
         }
     }
 }
-
-{% endhighlight %}
-
+```
 <aside class="reference">
     <p>This is actually the layout of the blog posts <a href="/">on my homepage</a> with some color and font tweaks.</p>
 </aside>

@@ -55,12 +55,12 @@ In my old flow, Gulp would spit the data out into a JSON object in a file that N
 
 11ty introduces the ability to use native JavaScript files. At its simplest, you create a JS file with that exports your data.
 
-{% highlight js %}
+```js
 module.exports = {
     data1: "Some string",
     data2: ["peaches", "plums"]
 }
-{% endhighlight %}
+```
 
 What makes this super handy, though, is that you can execute any JavaScript you want inside this file. This gives you lot of possibilities when it comes to fetching and storing data.
 
@@ -86,15 +86,15 @@ To bring this into your project, run `npm install --save axios`. Then, require t
 
 The `axios.get()` method expects a URL, so we'll build that with JavaScript's template literals to bring in our environment variables. The Meetup API also lets you specify how many events to return. In this example, I'm returning 20, but this could be adjusted for your needs.
 
-{% highlight js %}
+```js
 module.exports = async function() {
     let url = `https://api.meetup.com/${process.env.MEETUP_URL }/events?photo-host=public&page=20&sig_id=${process.env.MEETUP_KEY}`;
 }
-{% endhighlight %}
+```
 
 After we've built that, we'll return with our axios call. The response we get back has more than just the data we want, so in our axios function, we'll grab the `data` property off the response and return that.
 
-{% highlight js %}
+```js
 
 var axios   = require('axios');
 
@@ -109,7 +109,7 @@ module.exports = async function() {
           console.log(error);
       });
 }
-{% endhighlight %}
+```
 
 From here, Eleventy will take over and build the data when the site is generated or served. It will also display any console.log calls in the command line. If you're unsure of what's going wrong, this can be extremely helpful.
 
@@ -121,7 +121,7 @@ This data is now a first-class citizen in your Eleventy site. You can loop throu
 
 What this looks like at its most basic:
 
-{% highlight html %}
+```html
 {% raw %}
 <ul>  
   {% for meetup in meetups %}  
@@ -131,7 +131,7 @@ What this looks like at its most basic:
   {% endfor %}  
 </ul>
 {% endraw %}
-{% endhighlight %}
+```
 
 Any property on the the meetup object is accessible. Other handy properties include `description`, `local_date`, and `venue`.
 
@@ -143,14 +143,14 @@ The Eleventy documentation has you add filters in your `.eleventy` config file. 
 
 In our example, my configuration looks like this:
 
-{% highlight js %}
+```js
 
    config.addFilter("lookup", require("./filters/lookup.js"));  
-{% endhighlight %} 
+``` 
 
 Just like before, our code will be in an export. In this case, we'll export an anonymous function with two arguments: `array` and `filterString`. The array is the data in the template tag. `filterString` is a variable passed into the filter. 
 
-{% highlight html %}
+```html
 {% raw %}
 {% assign filteredMeetup = meetups | lookup: "filterString goes here" %}
 
@@ -162,11 +162,11 @@ Just like before, our code will be in an export. In this case, we'll export an a
   {% endfor %}  
 </ul>
 {% endraw %}
-{% endhighlight %}
+```
 
 From there, our code will take the array data and in this example use the array.filter method to filter based on the items name including our filterString. We then return the array at the end.
 
-{% highlight js %}
+```js
 
 module.exports = function(array, filterString) {  
    array = array.filter(item => {  
@@ -176,7 +176,7 @@ return item.name.includes(filterString);
 return array  
 }
 
-{% endhighlight %}
+```
 
 ## Extend the functionality
 

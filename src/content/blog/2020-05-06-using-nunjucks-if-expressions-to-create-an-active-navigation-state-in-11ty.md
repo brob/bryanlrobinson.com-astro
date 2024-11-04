@@ -37,7 +37,7 @@ In this tutorial, we'll set up a simple navigation, identify what page navigatio
 
 In this example, we'll keep the markup free from distractions. We'll have a very small base template that each of our pages will use.
 
-{% highlight html %}
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,13 +50,13 @@ In this example, we'll keep the markup free from distractions. We'll have a very
     {{ content | safe }}
 </body>
 </html>
-{% endhighlight %}
+```
 
 This is a fairly typical early base template. It has our general page metadata as well as includes for our header and footer and a spot open for our content.
 
 Our navigation has been abstracted out to be used in our `header.njk` file. Let's look in there.
 
-{% highlight html %}
+```html
 <nav>
     <a href="/">Home</a>
     <ul class="nav-items">       
@@ -66,7 +66,7 @@ Our navigation has been abstracted out to be used in our `header.njk` file. Let'
         <li><a class="nav__item" href="/contact">Contact</a></li>
     </ul>
 </nav>
-{% endhighlight %}
+```
 
 Mostly just raw HTML! A nav element with some lists of pages and anchor tags that take us to those pages.
 
@@ -74,9 +74,9 @@ Mostly just raw HTML! A nav element with some lists of pages and anchor tags tha
 
 The base of our active state will be a class applied to each navigation item when it's active. When a user lands on our "About" page, it should have an `active` class applied to its anchor tag.
 
-{% highlight html %}
+```html
   <li><a class="nav__item active" href="/about">About</a></li>
-{% endhighlight %}
+```
 
 This class-based idea works well, but requires us to manipulate our markup per page to make it work. The whole idea of a templating engine is to manipulate as little custom markup on each page as possible.
 
@@ -95,9 +95,9 @@ As it turns out, we have two things in our favor for creating the logic. 11ty sh
 
 So our conditional would look something like this:
 
-{% highlight html %}
+```html
 {% if '/blog' in page.url %}active{% endif %}
-{% endhighlight %}
+```
 
 This conditional will check to see if the string `/blog` exists inside of the string contained in the variable `page.url`. In the case of a blog, this is especially handy at checking if the current URL is a child page such as `/blog/blog-post-slug-url-goes-here`. Both `/blog` and our post URL will match that conditional.
 
@@ -111,9 +111,9 @@ The basic syntax for an if expression is this: `{% raw %}{{ expression-to-echo i
 
 In our case, we'll echo `active` as a string if our condition that we built above is evaluated to true.
 
-{% highlight html %}
+```html
 <li><a class="nav__item {{ 'active' if '/blog' in page.url }}" href="/blog">Blog</a></li>  
-{% endhighlight %}
+```
 
 This syntax functions the same way as the conditional statement above, but with a more concise syntax. The Nunjucks documentation refer to this as similar functionality to the ternary operator in JavaScript. The syntax is a bit better, allowing your condition to have an optional `else` case instead of requiring it.
 

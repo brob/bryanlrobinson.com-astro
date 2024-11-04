@@ -63,13 +63,13 @@ The process looks something like this:
 In a banner, all we really want is the banner's container and any content that banner needs to contain.
 
 
-{% highlight html %}
 
+```html
 <section class="banner">
     <h1>Hello World</h1>
 </section>
 
-{% endhighlight %}
+```
 
 In this example, we'll just utilize a section container and an `<h1>`. If you added more content, it could be siblings to the `<h1>` or you could place all of your content in a content container of some sort to do any positioning. 
 
@@ -85,7 +85,8 @@ One important note, all pseudo-elements require a `content` CSS property to disp
 
 <figure><img src="/images/overlay-somethings-not-right.jpg" alt="Grid Love"></figure>
 
-{% highlight scss %}
+
+```scss 
 .banner::after {
     content: ""; // ::before and ::after both require content
     position: absolute;
@@ -96,7 +97,7 @@ One important note, all pseudo-elements require a `content` CSS property to disp
     background-image: linear-gradient(120deg, #eaee44, #33d0ff);
     opacity: .7;
 }
-{% endhighlight %}
+```
 
 Now we have an element that is full-width and -height. To do this, we utilize absolute positioning, as we don't want to affect the content flow of the document. 
 
@@ -110,7 +111,8 @@ The keen-eyed observer would notice that something isn't quite right in the exam
 
 By using absolute positioning, we've actually put the overlay on top of the stacking context of our banner. To fix this, your overlay and your content will need to have a `z-index` applied to them. I usually give the overlay a 1 and my content 100.
 
-{% highlight scss %}
+
+```scss 
 .banner::after {
     ...
     z-index: 1;
@@ -118,7 +120,7 @@ By using absolute positioning, we've actually put the overlay on top of the stac
 .banner > * {
     z-index: 100;
 }
-{% endhighlight %}
+```
 
 
 #### And with that we have a finished overlay.
@@ -134,20 +136,20 @@ I've been toying with background blend modes for a little while now, but it blew
 
 Use `mix-blend-mode` on your overlay and you've got some fun new combinations to try out.
 
-{% highlight scss %}
+```scss
 .banner::after {
     /* opacity: .7; */
     mix-blend-mode: color;
     mix-blend-mode: hue;
     mix-blend-mode: hard-light;
 }
-{% endhighlight %}
+```
 
 The support for various blend modes are pretty weak in the Microsoft browsers, but you can still use them today with clever progressive enhancement. If you want them to be built in Edge, you can [let Microsoft know about your passion here](https://wpdev.uservoice.com/forums/257854-microsoft-edge-developer?query=blend). 
 
 Until that time, let's use `@supports` queries to make sure our code still respects our friends using Edge and IE. The above code removes the transparency from our overlay and lets the blend mode do it for us. Instead of removing it, let's negate it behind a support query.
 
-{% highlight scss %}
+```scss
 .banner::after {
     opacity: .7;
 
@@ -158,7 +160,7 @@ Until that time, let's use `@supports` queries to make sure our code still respe
         mix-blend-mode: hue;
     }
 }
-{% endhighlight %}
+```
 
 This way in browsers that don't support blend modes, we get our average, but nice overlay and in browsers that do, we get some really neat effects on our banner.
 
@@ -185,7 +187,7 @@ Instead of a `left` value of `0`, we'll use `50%`. That pushes the element over 
 
 Your code should now look like this: 
 
-{% highlight scss %}
+```scss
 .banner {
     overflow: hidden;
 }
@@ -201,7 +203,7 @@ Your code should now look like this: 
                translateX(-50%); // Moves the element 50% of its width back to the left
     background-image: linear-gradient(120deg,#eaee44,#33d0ff);
 }
-{% endhighlight %}
+```
 
 ![Image of the Skew finished on the after element](/images/overlay-skew-finish.jpg)
 
@@ -211,24 +213,23 @@ Let's create an identical pseudo element using `::before`. To do this, we're goi
 
 Your selector should look like this:
 
-{% highlight scss %}
 
+```scss
 .banner::after, .banner::before {
     ...
 }
-{% endhighlight %}
+```
 
 This will handle the creation, positioning, and base styles for the element.
 
 Then, we override the specific pieces we need to override. In this case, we'll change our skew.
 
-{% highlight scss %}
+```scss
 .banner::before {
     transform: skew(-15deg) 
                translateX(-50%);
 }
-{% endhighlight %}
-
+```
 When we do this, we also have to redeclare the `translateX` method. This is because we redeclared the whole `transform` property. If we didn't, the browser would assume we don't have a `translateX` for the `::before` due to the cascade. This is fixed in the latest transform specification, giving CSS individual transform properties, but that's not cross-browser compliant yet.
 
 ![Finished product of the overlapping overlays](/images/overlay-skew-overlap.jpg)
@@ -237,7 +238,7 @@ That's it. We now have two overlays that are creating an interesting geometric v
 
 Here's the final code:
 
-{% highlight scss %}
+```scss
 .banner::after, .banner::before {
     content: ""; 
     position: absolute;
@@ -260,7 +261,7 @@ Here's the final code:
 .banner {
     overflow: hidden;
 }
-{% endhighlight %}
+```
 
 Overlays should be simple and clean and never bloat your HTML with additional markup. This is one of my favorite uses of `::after` elements. It just makes so much sense.
 

@@ -22,7 +22,8 @@ In the past, we've had space-around. This allows the extra whitespace generated 
 
 Space-evenly takes the extra whitespace and splits it up ... well ... evenly.
 
-{% highlight scss %}
+
+```scss 
 .container {
     display:flex;
     width: 600px;
@@ -30,7 +31,7 @@ Space-evenly takes the extra whitespace and splits it up ... well ... evenly.
     background-color: #042A2B;
     justify-content: space-even;
 }
-{% endhighlight %}
+```
 
 With this value, you no longer need to account for half the spacing as padding on the parent. The Box-Alignment properties can now handle all spacing needs.
 
@@ -45,11 +46,12 @@ Align-items has always had baseline as a value. This aligns the baseline of the 
 Where's the counterpoint to flex-end, though?
 
 Firefox 52 implements align-items: first/last baseline allowing you to choose.
-{% highlight scss %}
+
+```scss 
 .container {
     align-items: last baseline;
 }
-{% endhighlight %}
+```
 
 ![Baseline last in action](/images/blog/space-evenly/baseline.png)
 

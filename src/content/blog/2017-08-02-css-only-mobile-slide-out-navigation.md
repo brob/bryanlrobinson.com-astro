@@ -34,7 +34,6 @@ That's not unusual. These tasks are perfect for JavaScript. If we're hiding the 
 
 Why don't we go old school? The only thing keeping us from a JavaScriptless mobile navigation is state management. How can we trigger a "show" state on tap or click, right? 
 
-{% include ad-space.html %}
 
 ## The original "stated" element
 
@@ -42,8 +41,8 @@ As it turns out, we have states in HTML that are accessible by CSS. `<input type
 
 We need to structure our HTML to make the best use of out CSS. 
 
-<div class="pull-1">
-{% highlight html %}
+
+```html
 <nav class="navigation">
     <input type="checkbox" id="nav-toggle">
     <label for="nav-toggle">Menu</label>
@@ -55,8 +54,7 @@ We need to structure our HTML to make the best use of out CSS. 
     </ul>
 
 </nav>
-{% endhighlight %}
-</div>
+```
 
 First, it's imporant for our label to have a "for" attribute. This will allow it to function in place of the checkbox itself later. Also notice in this example, our `<ul>` for our navigation is a sibling to our #nav-toggle checkbox. We're going to use this relationship to select it in CSS.
 
@@ -72,14 +70,14 @@ We start with our initial state. In the case of a mobile nav it shouldn't be sho
 
 To check the state of #nav-toggle, we'll use the :checked pseudo class.
 
-{% highlight scss %}
+```scss
 #nav-toggle ~ .nav-list {
     display: none; // Initial state
 }
 #nav-toggle:checked ~ .nav-list {
     display: block; // Toggled State using the :checked pseudo-class
 }
-{% endhighlight %}
+```
 
 Now, we have state built into our CSS for our navigation. All we have left is to style elements to look like we expect a mobile navigation to look.
 
@@ -87,7 +85,7 @@ This is where the "for" attribute on the label comes in handy. I've never seen a
 
 This is where preference you can deviate. Make it the mobile nav style you like best. You will need to change the `<label>`'s display property from "inline" to "block." Past that, I put my money on the word "Menu" and not a hamburger Icon, with a simple border style.
 
-{% highlight scss %}
+```scss
 #nav-toggle ~ label {
     display: block;
 
@@ -99,13 +97,13 @@ This is where preference you can deviate. Make it the mobile nav style you like 
     width: 100px;
     text-align: center;
 }
-{% endhighlight %}
+```
 
 ## "Off-canvas" Navigation
 
 While a show/hide navigation would work, "off-canvas" navigation is still in vogue. So, we'll take our actual navigation and move it to the right out of the visible viewport.
 
-{% highlight scss %}
+```scss
 .nav-list {
     position: fixed; // Absolute positioning would work as well
     right: -100%;
@@ -114,7 +112,7 @@ While a show/hide navigation would work, "off-canvas" navigation is still in vog
     height: 100%;
     width: 250px; // In most sites, I’d use a VW instead of a hard pixel value
 }
-{% endhighlight %}
+```
 
 ## Animating
 
@@ -125,7 +123,7 @@ I'm not great with animation, but I know animation is key to a good user interfa
 
 To do this, we'll use CSS transform's translateX function and a nice bouncy transition. For consistency, you'll want to use the same movement and transition on the label AND .nav-list.
 
-{% highlight scss %}
+```scss
 #nav-toggle ~ .nav-list, #nav-toggle ~ label {
 	// Nice bouncy transition
     transition: .5s transform;
@@ -135,7 +133,7 @@ To do this, we'll use CSS transform's translateX function and a nice bouncy tran
 #nav-toggle:checked ~ .nav-list, #nav-toggle:checked ~ label {
     transform: translateX(-$flyout);
 }
-{% endhighlight %}
+```
 
 ## Finished Product
 

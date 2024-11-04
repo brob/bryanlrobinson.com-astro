@@ -52,7 +52,7 @@ On devices bigger than tablets, we'll have a full row for each promo with the im
 
 ## The markup
 
-{% highlight html %}
+```html
 <section class="promos">
     <div class="promo">
         <h3 class="promo__headline">This is a headline for a promo space</h3>
@@ -64,7 +64,7 @@ On devices bigger than tablets, we'll have a full row for each promo with the im
     ... etc
     </div>
 </div>
-{% endhighlight %}
+```
 
 Sweet and simple. One parent container for the promos and one child container per promo. Inside that, we've got our content. A `h2/3/4`, `p`, `a` and an `img`. That's right, we're using an `<img>` tag for a background image. 
 
@@ -72,7 +72,7 @@ If you consider your image to be part of your content and not there for ambiance
 
 ## Crafting our initial grid
 
-{% highlight css %}
+```css
 
 .promo {
     display: grid;
@@ -96,7 +96,7 @@ If you consider your image to be part of your content and not there for ambiance
     grid-area: button;
 }
 
-{% endhighlight %}
+```
 
 
 Here's where the power starts. We're going to define our grid with one column and five rows.
@@ -117,13 +117,13 @@ To make the image span the full height and width our container, we need to tell 
 
 The current specification of Grid doesn't account for overlap in grid-template-areas. So, we'll create "named lines" instead by redefining our grid-template-columns and -rows.
 
-{% highlight css %}
+```css
 
 .promo {
       grid-template-columns: [image-start] 1fr [image-end];
       grid-template-rows: [image-start] 10vh auto auto auto 10vh [image-end];
 }
-{% endhighlight %}
+```
 
 Three big things are happening here:
 
@@ -133,13 +133,13 @@ Three big things are happening here:
 
 By defining these four lines, we can now call `grid-area: image` on our image and it will fill the entire promo.
 
-{% highlight css %}
+```css
 .promo__image {
         grid-area: image;
         align-self: stretch;
         object-fit: cover;
 }
-{% endhighlight %}
+```
 
 <aside class="reference" style="grid-row: span 2;"> The default value <code class="highlighter-rouge">normal</code> is much like <code class="highlighter-rouge">stretch</code> but doesn't affect things with intrinsic aspect ratios like images.</aside>
 
@@ -165,7 +165,7 @@ This is the easy part. For larger phones and tablets, let's set a breakpoint to 
 
 In this example, we have two promos, so we'll set our grid to two columns. If you have dynamic content, you could explore creating a fluid card grid.
 
-{% highlight css %}
+```css
 @media (min-width: 640px) and (max-width: 1024px) {
     .promos {
         display: grid;
@@ -173,7 +173,7 @@ In this example, we have two promos, so we'll set our grid to two columns. If yo
         grid-gap: 1rem;
     }
 }
-{% endhighlight %}
+```
 
 <figure class="reference" style="grid-row: span 4;">
     <img src="/images/responsive-just-desktop.jpg">
@@ -185,7 +185,7 @@ Tablets were easy: Add an extra column. Done. For desktop, let's create a row fo
 
 To build our new grid template, all we need to do is add a column and adjust our grid-template-areas.
 
-{% highlight css %}
+```css
     grid-template-columns: 1fr 1fr;
     grid-template-areas: '.......  image'
                          'headline image'
@@ -193,7 +193,7 @@ To build our new grid template, all we need to do is add a column and adjust our
                          ' button  image'
                          '.......  image';
     grid-column-gap: 20px;
-{% endhighlight %}
+```
 
 Since we named our grid areas, they'll automatically flow into their new homes.
 
@@ -203,7 +203,7 @@ Let's add a little white space on either side of our promos by setting a width a
 
 We'll also reset our font color and background color for the promos to values that make sense for the space the promos take up and align the text left instead of center.
 
-{% highlight css %}
+```css
     .promos {
         width: 95vw;
         margin: auto;
@@ -213,13 +213,13 @@ We'll also reset our font color and background color for the promos to values th
         color: black; // Inverts text color
         text-align: left; // My preference for this style of promo
     }
-{% endhighlight %}
+```
 
 ## Alternate image and text location on promos
 
 If you're anything like me, it bothers you to see those images repeating down the right side of the screen. We can fix this with the addition of a class and one more grid-template-area reset.
 
-{% highlight css %}
+```css
 .promo.even {
     grid-template-areas: 'image ....'
                          'image headline'
@@ -227,7 +227,7 @@ If you're anything like me, it bothers you to see those images repeating down th
                          'image button'
                          'image ....';
 }
-{% endhighlight %}
+```
 
 With that, we have an interesting set of design patterns that best match the device on which they're viewed. As always, [you can play with the code on CodePen](https://codepen.io/brob/pen/dKWdVB?editors=1000).
 

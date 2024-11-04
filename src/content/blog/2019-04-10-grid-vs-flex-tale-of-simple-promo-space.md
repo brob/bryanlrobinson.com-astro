@@ -37,7 +37,7 @@ At the time, we were still doing our primary layout in Flex. As it turns out, th
 
 It requires a lot of additional markup and quite a bit of extra CSS that is specific to the markup and display. In other words, the code was bloated and inflexible.
 
-{% highlight html %}
+```html
 <div class="promos">
     <div class="left-column">
         <a href="#" class="promo">Promo Space 1</a>
@@ -50,9 +50,9 @@ It requires a lot of additional markup and quite a bit of extra CSS that is spec
         </div>
     </div>
 </div>
-{% endhighlight %}
+```
 
-{% highlight css %}
+```css
 .promo {
     background-image: url(https://images.unsplash.com/photo-1552297166-e1e2a9f945d4?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
     background-repeat: no-repeat;
@@ -92,7 +92,7 @@ It requires a lot of additional markup and quite a bit of extra CSS that is spec
 .left-column .promo {
     height: 100%;
 }
-{% endhighlight %}
+```
 
 Our line count is at 12 lines of HTML and 40 lines of layout-based CSS.
 
@@ -100,14 +100,14 @@ Our line count is at 12 lines of HTML and 40 lines of layout-based CSS.
 
 Let's take a peek at what we need to make this layout work with Grid.
 
-{% highlight html %}
+```html
 <div class="promos">
     <a href="#" class="promo">Promo Space 1</a>
     <a href="#" class="promo">Promo Space 2</a>
     <a href="#" class="promo">Promo space 3</a>
     <a href="#" class="promo">Promo space 4</a>
 </div>
-{% endhighlight %}
+```
 
 No unnecessary nesting. Just four promo spaces inside of one container. This is the ideal amount of markup for this layout.
 
@@ -117,7 +117,7 @@ The HTML line count is at six. Exactly half the line count of our flex example. 
 
 In this case, we use grid-gap to keep our margins clean, grid-template-columns to specify our column sizes and grid-template-areas to define areas we can place our content in.
 
-{% highlight css %}
+```css
 .promos {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
@@ -138,7 +138,7 @@ In this case, we use grid-gap to keep our margins clean, grid-template-columns t
 .promo:nth-child(4) {
     grid-area: fourth;
 }
-{% endhighlight %}
+```
 
 Each promo gets its own named area with the grid-area property and that's it. No more code necessary. This isn't a hack. This isn't the combination of layout tricks with additional markup. This is layout as a first-class citizen of the web.
 

@@ -35,14 +35,14 @@ There is a plethora of amazing length units in CSS, so why let `px` and `rem`s h
 
 The definition of the `ch` unit is the width of the `0` character in the current font size. While not perfect, this allows us to specify a width for a column of content to be equal to an "ideal" number of characters. In the Smashing Magazine article linked above, the author indicates a comfortable line length to be between 45 and 85 characters wide. Instead of doing calculations and figuring out the proper amount of pixels, we can substitute the "character unit" to keep things balanced.
 
-{% highlight css %}
+```css
 .centered-column {
     width: 90vw;
     max-width: 75ch;
     margin-left: auto;
     margin-right: auto;
 }
-{% endhighlight %}
+```
 
 With this snippet, you now have a centered column that will never exceed a maximum recommendation.
 
@@ -64,17 +64,17 @@ One of my favorite new uses of the attribute selector comes from [Andy Bell's am
 
 In his reset -- which is full of well-thought-out configurations -- he uses attribute selectors to remove margins and paddings only from `ul`s and `ol`s that have classes. The thinking being that if you set a class on the item, you probably are resetting the list's styles. If you don't have a class, you probably want a bulleted or numbered list.
 
-{% highlight css %}
+```css
 ul[class],  
 ol[class] {  
    padding: 0;  
    margin: 0;
 }
-{% endhighlight %}
+```
 
 You could also apply this to anchor tags that have a `target` attribute. Use this in conjunction with an `::after` element to add a small icon for links that will take a user into a popup window.
 
-{% highlight css %}
+```css
 a[target] {
     padding-right: 2ch;
 }
@@ -85,25 +85,25 @@ a[target]::after {
     height: 1em;
     ...etc.
 }
-{% endhighlight %}
+```
 
 Using that same method for icons, you could apply a Twitter logo to any URLs that begin with Twitter's URL.
 
-{% highlight css %}
+```css
 a[href^="https://twitter.com"] {
     ...styles
 }
-{% endhighlight %}
+```
 
 This will target any anchor tag with an `href` that _starts_ with the string "https://twitter.com".
 
 Conversely, you can also check the end of a string for perhaps `.pdf` to find all the links to PDFs on the page.
 
-{% highlight css %}
+```css
 a[href$=".pdf"] {
     ...styles
 }
-{% endhighlight %}
+```
 
 There are so many handy recipes you can concoct with the attribute selectors. I wish more people knew about them and used them.
 
@@ -118,14 +118,14 @@ You can use it with any amount of text and give it either a specific number of c
 This can create interesting interstitial layouts in the middle of a blog post.
 
 
-{% highlight css %}
+```css
 
 .column-content {
     column-width: 250px; /* Columns with max-width of 250px
 /*  column-count: 2;   Always 2 columns */
     column-gap: 2rem;     /* Columns with 2rem of space in between */
 }
-{% endhighlight %}
+```
 
 There's even more you can do with things like `column-rule` for borders, and `column-span` to create breaks in your columns for new headers.
 

@@ -88,7 +88,7 @@ Our function is split into two parts: formatting data and posting data to a data
 
 In this area, I discovered my first issue. The URLs I was getting from Imgur's iOS shortcut came in different formats. Both of the formats were not the pure image. I never found the root cause of the varying formats, but baked in protections for that. To get the direct image URL, all it took was rewriting the URL string with `download` in it.  
 
-{% highlight javascript %}
+```js
 
 // populate environment variables locally.
 require('dotenv').config()
@@ -118,12 +118,12 @@ export function handler(event, context, callback) {
 }
 
 
-{% endhighlight %}
+```
 
 ### Step 2: Post that data to a form on Netlify
 
 
-{% highlight javascript %}
+```js
 export function handler(event, context, callback) {
 ...
 var approvedURL = process.env.POST_FORM;
@@ -148,7 +148,7 @@ var approvedURL = process.env.POST_FORM;
           return console.log(msg);
       });
   };
-{% endhighlight %}
+```
 
 First, note that we'll be using environment variables for our form endpoint as well as our form name. This removes "sensitive" data from our git repository. If someone has a form name, they can post to your forms and cost you money.
 
@@ -180,16 +180,16 @@ Using this data, we'll create a JSON file in `_data` to store our information.
 
 To lower complexity for this example, we'll clean the previous file first. To do this, we'll use `fs.truncate` to truncate the file to 0 characters.  
 
-{% highlight javascript %}
+```js
 function cleanFile(filePath, callback) {
     fs.truncate(filePath, 0, callback);
 }
-{% endhighlight %}
+```
 
 Once we have our file cleaned, we need to create the new data from the API request's body. We use Array.map() to create a the object for each status as expected by our Jekyll templates.  
 
 
-{% highlight js %}
+```js
 function buildStatuses(body) {
     let data = body.data;
     let imgId = getId(data.imgUrl);
@@ -201,11 +201,11 @@ function buildStatuses(body) {
     };
     return status;
 }
-{% endhighlight %}
+```
 
 Once we have the data how we want it, we'll use fs.writeFileSync() to  write this array to our data file.  
 
-{% highlight js %}
+```js
 fs.writeFileSync(statusFile, JSON.stringify(statuses, null, 2), function (err) {
     if (err) {
         console.log(err);
@@ -214,7 +214,7 @@ fs.writeFileSync(statusFile, JSON.stringify(statuses, null, 2), function (err) {
     }
 });
 console.log(`${statusFile} rebuilt from data`);
-{% endhighlight %}
+```
 
 Note: I'm utilizing synchronous versions of `fs` module functions. This made the process a bit easier and clearer.  
 
@@ -222,7 +222,7 @@ I'm also using environment variables again to protect the form ID as well as my 
 
 The finished Gulp task looks like this:
 
-{% highlight js %}
+```js
 gulp.task('status:get', function () {
     // URL for data store
     let url = `https://api.netlify.com/api/v1/forms/${process.env.STATUS_FORM_ID}/submissions/?access_token=${process.env.API_AUTH}`;
@@ -254,7 +254,7 @@ gulp.task('status:get', function () {
     });
     
 });
-{% endhighlight %}
+```
 
 ### Bonus: Download the images to the project via Imgur
 
@@ -262,7 +262,7 @@ Now that we have the data, we can write a function to fetch the images and store
 
 First, we need to determine all the images we need from the data. To do that, we'll read the statuses.json file and grab the image IDs from the data.  
 
-{% highlight js %}
+```js
 function imageNeeds() {
     // Creates array of all image IDs in JSON file
     let idList = fs.readFileSync('_data/statuses.json', 'utf8', function(err, contents) {
@@ -272,7 +272,7 @@ function imageNeeds() {
     const statusImageIds = jsonEncoded.map(status => { let split = status.imgUrl.split('/'); return split[split.length - 1]; });
     return statusImageIds;
 } 
-{% endhighlight %}
+```
 
 From there, we could just download each image from Imgur to our project. When we have a lot of statuses, that could end up taking a long time.  
 
@@ -280,7 +280,7 @@ To help mitigate that, I let this process run locally when I'm working on my sit
 
 Then, I can compare the image IDs I need to what files already exist and only download the latest.  
 
-{% highlight js %}
+```js
 function currentlyDownloaded() {
     // Creates array of images currently in the project
     const files = fs.readdirSync('./images/statusImages', (err, files) => {
@@ -305,7 +305,7 @@ needToDownload.forEach(fileId => {
         console.log(`Downloaded ${url}`);
     })
 });
-{% endhighlight %}
+```
 
 ### Writing a Jekyll template to use the data
 
@@ -315,18 +315,18 @@ In our case, we'll loop through the data as an array using `for status in site.d
 
 
 
-{% highlight html %}
+```html
 <article class="status">
     <img src="{{ status.localUrl }}">  
     <p>{{ status.status }}</p>  
 </article>  
-{% endhighlight %}
+```
 
 ## Setting up the build and serve functions
 
 Once we have everything configured the way we want, we need tell Gulp the order to run our commands. In this case, we want a development serving command and a production `build` command.  
 
-{% highlight js %}
+```js
 gulp.task('default', function () {
     runSequence('status:get', 'image:get', 'serve:jekyll');
 });
@@ -334,7 +334,7 @@ gulp.task('default', function () {
 gulp.task('build', function () {
     runSequence('status:get', 'image:get', 'build:jekyll', 'lambda:build');
 });
-{% endhighlight %}
+```
 
 The main differences in these commands are serving vs building Jekyll and adding Netlify's lambda build command to the build functionality.  
 

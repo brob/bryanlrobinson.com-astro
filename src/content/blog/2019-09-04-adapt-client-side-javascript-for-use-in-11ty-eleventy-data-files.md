@@ -41,15 +41,15 @@ Run the following to get this set up:
 
 Initial your `package.json` with the basics.
 
-{% highlight bash %}
+```bash
 npm init -y
-{% endhighlight %}
+```
 
 Then install 11ty:
 
-{% highlight bash %}
+```bash
 npm install --save @11ty/eleventy
-{% endhighlight %}
+```
 
 Once the install is done, you should be able to run `npx eleventy --serve` and 11ty will start serving your site. 
 
@@ -63,7 +63,7 @@ In our case, this JavaScript needs to just return that array to 11ty.
 
 Here's the modified code: 
 
-{% highlight js %}
+```js
 const fetchPokemon = () => {
     const promises = [];
     for (let i = 1; i <= 150; i++) {
@@ -80,17 +80,17 @@ const fetchPokemon = () => {
         return pokemon;
     });
 };
-{% endhighlight %}
+```
 
 In the file structure of our project, we need to have a folder to contain our data files. I'm keeping this barebones with configuration, so we'll name our folder `_data` which is the 11ty default.
 
 We'll put our data fetcher file in here. Whatever you name the file will be the variable you get in your templates. In this case, I named mine `pokemon.js`. Put our function in the top of this file. 11ty's data files are node modules, so we need to export our data.
 
-{% highlight js %}
+```js
 module.exports = async function() {
     return await fetchPokemon();
 }
-{% endhighlight %}
+```
 
 That `await` in the export is very important. Otherwise, 11ty will finish building the site before the data has returned.
 
@@ -98,15 +98,15 @@ The discerning eye might notice that James is using a powerful new browser API t
 
 Install the package:
 
-{% highlight bash %}
+```bash
 npm install --save node-fetch
-{% endhighlight %}
+```
 
 Require the package at the top of your file:
 
-{% highlight js %}
+```js
 const fetch = require('node-fetch');
-{% endhighlight %}
+```
 
 From here, our data file should work when 11ty is building or serving the site.
 
@@ -116,7 +116,7 @@ Next, we'll need to add a basic HTML template that uses this variable.
 
 For my purposes, I blatantly borrowed James' HTML and CSS, and worked a template loop around his `<li>` for each Pokemon.
 
-{% highlight html %}
+```html
 <div class="container">
     <h1>Robinson's Pokedex</h1>
     <ul id="pokedex">
@@ -129,7 +129,7 @@ For my purposes, I blatantly borrowed James' HTML and CSS, and worked a template
         {% endfor %}
     </ul>
 </div>
-{% endhighlight %}
+```
 
 ## Step 3: Add some styles
 
@@ -141,11 +141,11 @@ We'll create an `.eleventy.js` file in the root of our project.
 
 In that file, we'll export one line that sets 11ty to pass any root-level CSS into our final distribution directory.
 
-{% highlight js %}
+```js
 module.exports = function(eleventyConfig) {  
    eleventyConfig.addPassthroughCopy("*.css");  
 };
-{% endhighlight %}
+```
 
 ## That's it!
 

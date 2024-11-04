@@ -34,23 +34,23 @@ Let's take a simple example of a showcasing a template loop. Either using markdo
 
 ### A code block that looks like this:
 
-{% highlight 'twig' %}
+```twig
 {% raw %}
-{% highlight 'html' %}
+```html
     {% for currentPost in collections.posts | limit(3)  %}
        {{ post.title }}
     {% endfor %}
-{% endhighlight %}
+```
 {% endraw %}
-{% endhighlight %}
+```
 
 ### Will render an output of this:
 
-{% highlight 'twig' %}
+```twig
 {% for currentPost in collections.posts | limit(3)  %}
 {{ currentPost.data.title }}
 {% endfor %}
-{% endhighlight %}
+```
 
 **WOOOOPS!**
 
@@ -62,20 +62,20 @@ We use a tag provided by both languages to fix this specific issue. The `Raw` ta
 
 If we insert the `raw` tag, our code will render as a code block that contains template syntax, not a rendered list of post titles.
 
-{% highlight 'twig' %}
+```twig
     {% raw %}
 
 {% raw %}
-    {% highlight 'html' %}
+    ```html
         {% for currentPost in collections.posts | limit(3)  %}
            {{ post.title }}
         {% endfor %}
-    {% endhighlight %}
+    ```
 {% endraw %}
 
     {% endraw %}
 
-{% endhighlight %}
+```
 
 We now have exactly what we want! 
 

@@ -38,18 +38,18 @@ To get to the point of flexibility, we first have to set up our template.  The 
     <img src="/images/blog/grid-cover/grid-setup.gif">
 </figure>
 
-{% highlight scss %}
-    .cover {
-        box-sizing: border-box;
-        width: 100%;
-        height: 100vh; // Always 100% of the viewport's height
-        padding: 20px;
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr; // 5 rows
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr; // 5 columns
-        grid-gap: 5px; // 5x5 works well for centering
-    }
-{% endhighlight %}
+```scss
+.cover {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh; // Always 100% of the viewport's height
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; // 5 rows
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; // 5 columns
+    grid-gap: 5px; // 5x5 works well for centering
+}
+```
 
 After we write our HTML and set up our grid in CSS, we're ready to place our content. Here's an example of the basic "cover" layout:
 
@@ -57,24 +57,25 @@ After we write our HTML and set up our grid in CSS, we're ready to place our con
 
 To layout a headline, subhead and caption this simply, Grid may be a bit of overkill. Here's the code for the image above:
 
-{% highlight scss %}
-    .headline {
-        grid-row: 3;
-        grid-column: 2 / 5;
-        text-align: center;
-        align-self: center;
-        align-self: end;
-    }
-    .subhead {
-        grid-row: 4;
-        grid-column: 2 / 5;
-        text-align: center;
-    }
-    .secondary {
-        grid-column: 4 / 6;
-        text-align: right;
-    }
-{% endhighlight %}
+
+```scss
+.headline {
+    grid-row: 3;
+    grid-column: 2 / 5;
+    text-align: center;
+    align-self: center;
+    align-self: end;
+}
+.subhead {
+    grid-row: 4;
+    grid-column: 2 / 5;
+    text-align: center;
+}
+.secondary {
+    grid-column: 4 / 6;
+    text-align: right;
+}
+```
 
 Flexbox and absolute positioning would probably have made this easier. This setup also allows us to use the 5x5 grid to create new and powerful combinations based on the same markup.
 
@@ -88,20 +89,21 @@ In our first example, we've got a beautiful shot of a city skyline blazing in th
 
 There would still be impact if we left our headline in its default position, but the headline will compete with the image. What if the text could mirror the shape of a skyscraper? What if it could also fit within the negative space afforded by the walkway?
 
-{% highlight scss %}
-    .headline {
-        grid-row: 2 / 6;
-        grid-column: 3 / 4;
-        text-align: center;
-        align-self: end;
-    }
-    .secondary {
-        grid-row: 5 / 6;
-        grid-column: 4 / 6;
-        text-align: right;
-    }
 
-{% endhighlight %}
+```scss
+.headline {
+    grid-row: 2 / 6;
+    grid-column: 3 / 4;
+    text-align: center;
+    align-self: end;
+}
+.secondary {
+    grid-row: 5 / 6;
+    grid-column: 4 / 6;
+    text-align: right;
+}
+```
+
 ![](/images/blog/grid-cover/grid-center-column.jpg)
 
 ## Example 2: Connecting eye line to headline
@@ -118,25 +120,24 @@ In this example, we can eschew the tradition of placing our headline at the cent
 
 Again, we can simply change our CSS to change our layout. No need to modify markup.
 
-{% highlight scss %}
-    .headline {
-        grid-row: 2 / 5;
-        grid-column: 5 / 6;
-        text-align: right;
-        font-family: 'Stalemate', cursive;
-    }
-    .subhead {
-        grid-column: 3 / 6;
-        grid-row: 6;
-        text-align: right;
-    }
-    .secondary {
-        grid-row: 6;
-        grid-column: 1 / 3;
-    }
 
-{% endhighlight %}
-
+```scss
+.headline {
+    grid-row: 2 / 5;
+    grid-column: 5 / 6;
+    text-align: right;
+    font-family: 'Stalemate', cursive;
+}
+.subhead {
+    grid-column: 3 / 6;
+    grid-row: 6;
+    text-align: right;
+}
+.secondary {
+    grid-row: 6;
+    grid-column: 1 / 3;
+}
+```
 ## More examples
 
 Here are other screenshots for ways of laying out content in a cover page via the same grid and markup we've used so far. All of these layouts are available to play with [in my CodePen collection](http://codepen.io/collection/DKgxgx/). If you use them in CodePen, keep in mind, you'll need to have a Grid-enabled browser.

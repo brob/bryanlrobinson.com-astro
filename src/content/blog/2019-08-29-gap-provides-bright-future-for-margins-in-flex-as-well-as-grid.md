@@ -33,7 +33,7 @@ In this example, we'll take a series of boxes, use Flexbox to create a grid styl
 
 We'll start with basic HTML. A `flex-container` and multiple `flex-item`s.
 
-{% highlight html %}
+```html
 <div class="flex-container">
     <div class="flex-item"></div>
     <div class="flex-item"></div>
@@ -44,11 +44,11 @@ We'll start with basic HTML. A `flex-container` and multiple `flex-item`s.
     <div class="flex-item"></div>
     <div class="flex-item"></div>
 </div>
-{% endhighlight %}
+```
 
 We'll add a small dash of `flex` to put all the content side-by-side, put in a pinch of a `width` calculation to size our items and then allow them to wrap with `flex-wrap`.
 
-{% highlight css %}
+```css
 .flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -56,19 +56,19 @@ We'll add a small dash of `flex` to put all the content side-by-side, put in a p
 .flex-item {
     width: calc(100% / 3);
 }
-{% endhighlight %}
+```
 
 ![Boxes that are one third the width of the parent but with no margins](/images/flex-gap-old-step-1.jpg)
 
 This gives us perfectly sized boxes that are 1/3 the width of our container. Let's add some margins to put space in between each item vertically and horizontally.
 
-{% highlight css %}
+```css
 .flex-item {
     width: calc(100% / 3);
     margin-right: 1rem;
     margin-bottom: 1rem;
 }
-{% endhighlight %}
+```
 ![The boxes are now 2 across!](/images/flex-gap-old-step-2.png)
 
 Uh-oh! Our perfectly sized thirds now don't fit three across in our flex layout anymore! That's a nice margin between the rows, though!
@@ -77,7 +77,7 @@ We'll need to adjust our width calculation to deal with the additional marginal 
 
 We have two `1rem` margins now and we need to subtract those `2rem` equally from the width of all three items.
 
-{% highlight css %}
+```css
 flex-item {
     // width: calc(100% / 3);
     width: calc((100% / 3) - (2rem / 3)); // one-third - two margins divided equally among 3 items
@@ -87,7 +87,7 @@ flex-item {
 .flex-item:nth-child(3n) {
     margin-right: 0;
 }
-{% endhighlight %}
+```
 
 ![Finally done!](/images/flex-gap-old-final.jpg)
 
@@ -103,7 +103,7 @@ In this case, we still have `display: flex` and `flex-wrap: wrap` on our contain
 
 From there, instead of setting a width on each flex item, we'll set our flex grow, shrink and basis values. `flex-basis` will be how the browser determines how many columns to create. We'll still be using a `calc()` for that, but the resulting code is much cleaner.
 
-{% highlight css %}
+```css
 .flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -112,7 +112,7 @@ From there, instead of setting a width on each flex item, we'll set our flex gro
 .flex-item {
     flex: 1 1 calc((100% / 3) - 2rem);
 }
-{% endhighlight %}
+```
 
 ![Finally done!](/images/flex-gap-new.png)
 
@@ -124,7 +124,7 @@ In our original example, if we wanted to change the number of columns at differe
 
 In our `gap` example, all we have to do is reset our `flex-basis`, and we're good to go.
 
-{% highlight css %}
+```css
 .flex-item {
     flex: 1 1 100%; // 1 across at mobile
 }
@@ -138,7 +138,7 @@ In our `gap` example, all we have to do is reset our `flex-basis`, and we're goo
         flex-basis: calc((100% / 3) - 2rem); // 3 across at desktop
     }
 }
-{% endhighlight %}
+```
 
 I won't lie, [I still prefer CSS Grid](https://bryanlrobinson.com/blog/howto-css-grid-layout-to-make-a-simple-fluid-card-grid/) for a design pattern like this, but hopefully you can see multiple use cases for this amazing new feature.
 

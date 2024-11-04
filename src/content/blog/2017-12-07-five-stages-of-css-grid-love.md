@@ -40,13 +40,12 @@ The very first practical code you will write will be a simple grid with uniform 
 
 This will blow. your. mind. It blew mine. The amount of design power that three lines of CSS will grant you is amazing.
 
-{% highlight css %}
 
+```css
 display: grid;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-
-{% endhighlight %}
+```
 
 I wrote a blog post -- [Make a More Flexible Cover Screen with CSS Grid](/blog/2017/03/21/grid-and-cover-pages/) -- that illustrates exactly what this is capable of.
 
@@ -62,13 +61,13 @@ Trust me, you'll want to use this everywhere.
 
 This feels like the future. I can create a string representation of my grid's areas and then assign my HTML elements to that area.
 
-{% highlight css %}
+```css
     display: grid;
     grid-template-columns: 300px 50px 1fr;
     grid-template-areas: "header header header"
                          "sidebar  .    main"
                          "footer footer footer";
-{% endhighlight %}
+```
 
 ## 5\. Named Grid Lines
 
@@ -96,4 +95,3 @@ Yeah... that's how I feel. So much layout power.
 
 How did you learn to love Grid? What are the killer features or workflows that you use?
 
-{% include ad-space.html %}

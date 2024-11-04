@@ -42,7 +42,7 @@ Usually when I talk about Sass mixins, I like to show the power on buttons. That
 
 In this case, we need to affect four main elements with our CSS. The parent element, a universal (*) set of elements inside the parent and a ::before and ::after pseudo-element.
 
-{% highlight css %}
+```css
 .article-promo {
     position: relative;
     padding: 20px;
@@ -74,7 +74,7 @@ In this case, we need to affect four main elements with our CSS. The parent elem
     z-index: 0;
     mix-blend-mode: screen;
 }
-{% endhighlight %}
+```
 
 Taking a look at this code, you can see that it would be a lot to create by hand every time we wanted to do a different gradient border.
 
@@ -90,17 +90,17 @@ For a gradient border, I'll want to adjust the "border size," the start color, t
 
 Let's move those values out into variables at the top of our CSS.
 
-{% highlight scss %}
+```scss
 $border-size: 10px;
 $original-background-color: white;  
 $gradient-start-color: #eaee44;  
 $gradient-end-color: #33d0ff;  
 $gradient-direction: 120deg;
-{% endhighlight %}
+```
 
 Where we were originally using static values, we'll now replace those with the variables.
 
-{% highlight scss %}
+```scss
 
 .article-promo::before {
     ...
@@ -115,7 +115,7 @@ Where we were originally using static values, we'll now replace those with the v
 .article-promo::after {
      background-image: linear-gradient($gradient-direction, $gradient-start-color, $gradient-end-color);
 }
-{% endhighlight %}
+```
 
 Note the `#{}` syntax in our `calc()` function in this example. This is a use case of a concept called variable interpolation. Most languages have some form of this.
 
@@ -131,7 +131,7 @@ Side Note: Why use `@extend` instead of creating a mixin and using `@include` he
 
 We'll start by creating a "dummy" selector for our properties.
 
-{% highlight scss %}
+```scss
 
 %pseudo-properties {
     content: "";  
@@ -140,13 +140,13 @@ We'll start by creating a "dummy" selector for our properties.
     z-index: 0;
 }
 
-{% endhighlight %}
+```
 
 Note that `%` in there. That's not standard CSS. We use that so that we don't generate the CSS until it's called. This keeps selector bloat down a little bit.
 
 We can then reference that fake selector with the `@extend` method on our pseudo elements.
 
-{% highlight scss %}
+```scss
 .article-promo::before {  
    @extend %pseudo-properties;
     ...
@@ -156,18 +156,18 @@ We can then reference that fake selector with the `@extend` method on our pseudo
    @extend %pseudo-properties;
     ...
 }
-{% endhighlight %}
+```
 
 The compiled CSS will look like this: 
 
-{% highlight css %}
+```css
 .article-promo::before, .article-promo::after {
     content: "";
     display: block;
     position: absolute;
     z-index: 0;
 }
-{% endhighlight %}
+```
 
 The other code in your definition block for `::before` or `::after will be compiled into its own selector later. You can keep your code together this way and not worry about bloat.
 
@@ -177,7 +177,7 @@ We can use Sass's nesting abilities to clean up our code a little. 
 
 This will also help as we extend the functionality to any other selector than our current one.
 
-{% highlight scss %}
+```scss
 .article-promo {
     position: relative;
     padding: $border-size * 2;
@@ -203,7 +203,7 @@ This will also help as we extend the functionality to any other selector than ou
         mix-blend-mode: screen;
     }
 } 
-{% endhighlight %}
+```
 
 ## Step 4: Move border functionality into a mixin
 
@@ -211,7 +211,7 @@ Here's the big move. We'll take everything that we've written inside our main se
 
 We don't need the main selector because that's where we'll apply our mixin. We don't need the variables, because they will be arguments in our mixin.
 
-{% highlight scss %}
+```scss
 
 @mixin gradient-border() {
     position: relative;
@@ -239,23 +239,23 @@ We don't need the main selector because that's where we'll apply our mixin. We d
     }
 }
 
-{% endhighlight %}
+```
 
 Just like in a function definition in JavaScript, we'll pass our variables into the parentheses.
 
 You can even specify default values. In my case, I'm keeping a consistent border with small tweaks, so I opted for default values.
 
-{% highlight scss %}
+```scss
 @mixin gradient-border($border-size: 10px, $original-background-color: white, $gradient-start-color: #eaee44, $gradient-end-color: #33d0ff, $gradient-direction: 120deg) {
     ...
 }
-{% endhighlight %}
+```
 
 ## Step 5: Declare the mixin in the selectors you need it
 
 Finally, we have a mixin that we can use. We'll use the Sass `@include` method. Here are a few examples.
 
-{% highlight scss %}
+```scss
 .article-promo {  
    @include gradient-border; // Gives all defaults
 }
@@ -269,7 +269,7 @@ Finally, we have a mixin that we can use. We'll use the Sass `@include` method. 
 .vertical-gradient {
     @include gradient-border($gradient-direction: to bottom);
 }
-{% endhighlight %}
+```
 
 ## Using this for other examples
 

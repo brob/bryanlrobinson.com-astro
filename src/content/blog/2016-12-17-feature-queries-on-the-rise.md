@@ -28,7 +28,7 @@ Then, Internet Explorer — a long-time culprit of compatibility issues — impl
     <p>More examples of conditional stylesheets <a href="https://css-tricks.com/how-to-create-an-ie-only-stylesheet/">over on CSS Tricks</a></p>
 </aside>
 
-{% highlight html %}
+```html
 
 <!-- Main CSS -->
 <link rel="stylesheet" type="text/css" href="style.css" />
@@ -43,19 +43,16 @@ Then, Internet Explorer — a long-time culprit of compatibility issues — impl
 	<link rel="stylesheet" type="text/css" href="less-than-ie7.css" />
 <![endif]-->
 
-{% endhighlight %}
-
+```
 
 Then, in 2009, came [the Modernizr javascript library by Faruk Ates](https://modernizr.com/). This was a huge step forward in allowing you to target features not browsers in your code.
 
 The Modernizr library uses User Agent “sniffing” to find out what a user’s browser is capable of and then provides that information in a few ways for the developer to access. A dev can utilize the library in their javascript to test both CSS features and JS features. Modernizr also can provide your application with features dumped out in a string of class names on the <html> element on the page. Meaning your css can target browsers that support flexbox or browsers that DON’T support flexbox in new and powerful ways.
 
 
-{% highlight html %}
-
+```html 
 <html class="js no-flexbox canvas canvastext no-webgl no-touch geolocation postmessage no-websqldatabase no-indexeddb hashchange no-history draganddrop no-websockets rgba hsla multiplebgs backgroundsize no-borderimage borderradius boxshadow no-textshadow opacity no-cssanimations no-csscolumns no-cssgradients no-cssreflections csstransforms no-csstransforms3d no-csstransitions fontface generatedcontent video audio localstorage sessionstorage no-webworkers no-applicationcache svg inlinesvg smil svgclippaths">
-
-{% endhighlight %}
+```
 
 This allows for a lot of flexibility, but is also odd bloat that appears in your <html> DOM node.
 
@@ -67,17 +64,14 @@ All of these methods are great, but they aren’t native citizens of the specifi
 
 The syntax is relatively easy:
 
-{% highlight css %}
-
+```css
 @supports (css-property: value) or (css-property: value) {
 	.class {
 		…
 	}
 
 }
-
-{% endhighlight %}
-
+```
 
 Here’s a concrete example using CSS Grid -- an amazing new layout property that isn’t in even modern browsers until March or April 2017.
 
