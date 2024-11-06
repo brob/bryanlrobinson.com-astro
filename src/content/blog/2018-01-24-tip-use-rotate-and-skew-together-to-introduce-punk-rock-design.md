@@ -6,7 +6,7 @@ categories:
 - Development
 - CSS
 description: I'm still convinced that taking inspiration from punk rock design of the 70s and 80s is going to be a trend. If you want to start small, introduce some angles to your design. This is a simple trick to angle a stripe of content without adding awkward white space.
-featuredImg: images/uploads/rotate_skew_unskew.jpg
+featuredImg: /images/uploads/rotate_skew_unskew.jpg
 featuredLarge: True
 baseLayout: container--right
 updated: 18 Feb, 2019

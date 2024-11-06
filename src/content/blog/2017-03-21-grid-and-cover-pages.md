@@ -9,7 +9,7 @@ categories:
 - Tutorial
 - CSS
 description: Our design trends are about to get a facelift. Grid Layout is coming in the next release of modern browsers. It's important to get a grip on its utility. Let's take a common trend in editorial and marketing design - the "cover page" banner area.
-featuredImg: images/blog/grid-cover/room.jpg
+featuredImg: /images/blog/grid-cover/room.jpg
 baseLayout: container--right
 ---
 

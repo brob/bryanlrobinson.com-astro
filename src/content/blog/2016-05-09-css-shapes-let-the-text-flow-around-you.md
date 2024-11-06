@@ -10,7 +10,7 @@ description: There’s magic in the air around CSS right now. There’s so much 
   be excited about. One simple thing that you should get excited about is the CSS
   Shapes Module. These are not CSS shapes like building triangles out of border property
   hacks. This is taking your content and shaping it around shapes and images.
-featuredImg: images/blog/circle-around.png
+featuredImg: /images/blog/circle-around.png
 ---
 
 There’s magic in the air around CSS right now. There’s so much new to be excited about. One simple thing that you should get excited about is the CSS Shapes Module.
