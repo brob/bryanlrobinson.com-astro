@@ -1,5 +1,5 @@
 import agent from "../../../utils/bluesky";
-import { CacheHeaders, ONE_HOUR } from "cdn-cache-control";
+import { CacheHeaders } from "cdn-cache-control";
 
 export const prerender = false;
 
@@ -11,7 +11,7 @@ export async function GET({ params }) {
     })
 
     const latestPost = data.feed[0].post
-    const headers = new CacheHeaders().swr().ttl(ONE_HOUR);
+    const headers = new CacheHeaders();
     return new Response(
       JSON.stringify(latestPost), {
         status: 200,
