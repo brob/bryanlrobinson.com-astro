@@ -3,7 +3,7 @@ import agent from "../utils/bluesky";
 import {BlueskyPost} from '@astro-community/astro-embed-bluesky'
 export const prerender = false;
 const response = await fetch(`${import.meta.env.DEPLOY_PRIME_URL}/api/bluesky/latestPost`)
-console.log(import.meta.env.DEPLOY_PRIME_URL)
+console.log('my prime url', import.meta.env.DEPLOY_PRIME_URL)
 if (!response.ok) {
     throw new Error(`Response status: ${response.status}`);
 }
