@@ -2,11 +2,13 @@
 import agent from "../utils/bluesky";
 import {BlueskyPost} from '@astro-community/astro-embed-bluesky'
 export const prerender = false;
-const {data} = await agent.getAuthorFeed({
-    actor: 'brob.dev'
-})
+const response = await fetch('http://localhost:4323/api/bluesky/latestPost')
+if (!response.ok) {
+    throw new Error(`Response status: ${response.status}`);
+}
 
-const latestPost = data.feed[0]
+const post = await response.json();
+console.log(post);
 ---
 
-<BlueskyPost id={latestPost.post.uri} />
+<BlueskyPost id={post.uri} />
