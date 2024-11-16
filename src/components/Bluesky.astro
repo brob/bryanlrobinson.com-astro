@@ -2,7 +2,7 @@
 import agent from "../utils/bluesky";
 import {BlueskyPost} from '@astro-community/astro-embed-bluesky'
 export const prerender = false;
-const response = await fetch('http://localhost:4323/api/bluesky/latestPost')
+const response = await fetch(`${import.meta.env.URL}/api/bluesky/latestPost`)
 if (!response.ok) {
     throw new Error(`Response status: ${response.status}`);
 }
