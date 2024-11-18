@@ -4,9 +4,9 @@ import { CacheHeaders, ONE_HOUR } from "cdn-cache-control";
 
 import {BlueskyPost} from '@astro-community/astro-embed-bluesky'
 
-const cacheHeaders = new CacheHeaders()
+const cacheHeaders = new CacheHeaders().ttl(300)
 cacheHeaders.forEach((value, key) => Astro.response.headers.set(key, value))
-
+console.log(Astro.response.headers)
 
 export const prerender = false;
 console.log(import.meta.env.CURRENT_URL, process.env.DEPLOY_URL, process.env.URL, process.env.DEPLOY_URL, process.env.SITE_NAME, import.meta.env.SITE_NAME)

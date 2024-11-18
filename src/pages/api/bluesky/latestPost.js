@@ -11,14 +11,12 @@ export async function GET({ params }) {
     })
 
     const latestPost = data.feed[0].post
-    const headers = new CacheHeaders().ttl(300).swr(600);
-    console.log(JSON.stringify(Object.fromEntries([...headers])))
+  
     return new Response(
       JSON.stringify(latestPost), {
         status: 200,
         headers: {
           "Content-Type": "application/json",
-          headers
         }
       }
     );
