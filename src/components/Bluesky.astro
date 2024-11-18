@@ -1,6 +1,13 @@
 ---
 import agent from "../utils/bluesky";
+import { CacheHeaders, ONE_HOUR } from "cdn-cache-control";
+
 import {BlueskyPost} from '@astro-community/astro-embed-bluesky'
+
+const cacheHeaders = new CacheHeaders().ttl(ONE_HOUR).swr(ONE_HOUR)
+cacheHeaders.forEach((value, key) => Astro.response.headers.set(key, value))
+
+
 export const prerender = false;
 console.log(import.meta.env.CURRENT_URL, process.env.DEPLOY_URL, process.env.URL, process.env.DEPLOY_URL, process.env.SITE_NAME, import.meta.env.SITE_NAME)
 const response = await fetch(`${process.env.CURRENT_URL}/api/bluesky/latestPost`)
