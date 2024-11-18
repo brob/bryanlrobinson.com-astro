@@ -4,19 +4,20 @@ import { CacheHeaders, ONE_HOUR } from "cdn-cache-control";
 
 import {BlueskyPost} from '@astro-community/astro-embed-bluesky'
 
+const {data} = await agent.getAuthorFeed({
+        actor: 'brob.dev'
+    })
+    const latestPost = data.feed[0].post
+
 const cacheHeaders = new CacheHeaders()
 cacheHeaders.forEach((value, key) => Astro.response.headers.set(key, value))
 console.log(Astro.response.headers)
 
 export const prerender = false;
-console.log(import.meta.env.CURRENT_URL, process.env.DEPLOY_URL, process.env.URL, process.env.DEPLOY_URL, process.env.SITE_NAME, import.meta.env.SITE_NAME)
-const response = await fetch(`${process.env.CURRENT_URL}/api/bluesky/latestPost`)
-console.log('my deploy url', import.meta.env.DEPLOY_URL)
-if (!response.ok) {
-    throw new Error(`Response status: ${response.status}`);
-}
 
-const post = await response.json();
+
+
+const post = data.feed[0].post
 ---
 
 <BlueskyPost id={post.uri} />
