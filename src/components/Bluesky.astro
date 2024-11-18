@@ -4,7 +4,7 @@ import { CacheHeaders, ONE_HOUR } from "cdn-cache-control";
 
 import {BlueskyPost} from '@astro-community/astro-embed-bluesky'
 
-const cacheHeaders = new CacheHeaders().ttl(ONE_HOUR).swr(ONE_HOUR)
+const cacheHeaders = new CacheHeaders()
 cacheHeaders.forEach((value, key) => Astro.response.headers.set(key, value))
 
 
