@@ -12,5 +12,6 @@ export default defineConfig({
   site: 'https://bryanlrobinson.com',
   integrations: [mdx(), sitemap(), react(), tailwind()],
 
+
   adapter: netlify()
 });
