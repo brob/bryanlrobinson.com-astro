@@ -1,5 +1,7 @@
 import { Config, Context } from "@netlify/functions";
 import { CacheHeaders } from "cdn-cache-control";
+import agent from "../../../src/utils/bluesky";
+
 
 async function getArticles(username: string) {
   // Artificial slow API
@@ -13,14 +15,18 @@ async function getArticles(username: string) {
 
 
 export default async (req: Request, context: Context) => {
-  const { username } = context.params;
-  const articles = await getArticles(username);
+
+    const {data} = await agent.getAuthorFeed({
+            actor: 'brob.dev'
+        })
+    const latestPost = data.feed[0].post
+    console.log(latestPost)
+    
   
-  const headers = new CacheHeaders().tag("articles", "articles-" + username);
+  const headers = new CacheHeaders();
 
   const response = new Response(JSON.stringify({
-    articles,
-    username
+    latestPost
   }), {
     headers
   });
