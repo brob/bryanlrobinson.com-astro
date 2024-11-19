@@ -4,23 +4,28 @@ import { CacheHeaders, ONE_HOUR } from "cdn-cache-control";
 
 import {BlueskyPost} from '@astro-community/astro-embed-bluesky'
 
-const {data} = await agent.getAuthorFeed({
-        actor: 'brob.dev'
-    })
-    const latestPost = data.feed[0].post
-console.log(latestPost)
-const cacheHeaders = new CacheHeaders().tag("post", "post-" + latestPost.cid);
+const referer = Astro.request.headers.get('Referer');
+const url = new URL(referer);
+const response = await fetch(url?.origin + '/api/bluesky/latestPost')
+if (!response.ok) {
+    throw new Error(`Response status: ${response.status}`);
+}
+const latestPostJson = await response.json();
+
+// const {data} = await agent.getAuthorFeed({
+//         actor: 'brob.dev'
+//     })
+    const latestPost = latestPostJson
+
+    const cacheHeaders = new CacheHeaders().tag("post", "post-" + latestPost.cid);
 cacheHeaders.forEach((value, key) => Astro.response.headers.set(key, value))
-// Astro.response.headers.set('cache-control', 'public,max-age=0,must-revalidate')
-// Astro.response.headers.set('netlify-cdn-cache-control', 'public,s-maxage=300,must-revalidate,durable')
-console.log(Astro.response.headers)
-console.log('NETLIFY ENV local VAR', process.env.NETLIFY_LOCAL)
-console.log({'NETLIFY ENV prod VAR': process.env.NETLIFY})
+
+
 export const prerender = false;
 
 
 
-const post = data.feed[0].post
+const post = latestPostJson
 ---
 
 <BlueskyPost id={post.uri} />
