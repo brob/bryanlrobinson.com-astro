@@ -9,8 +9,10 @@ const {data} = await agent.getAuthorFeed({
     })
     const latestPost = data.feed[0].post
 
-const cacheHeaders = new CacheHeaders().ttl(300)
-cacheHeaders.forEach((value, key) => Astro.response.headers.set(key, value))
+// const cacheHeaders = new CacheHeaders().ttl(300)
+// cacheHeaders.forEach((value, key) => Astro.response.headers.set(key, value))
+Astro.response.headers.set('cache-control', 'public,max-age=0,must-revalidate')
+Astro.response.headers.set('netlify-cdn-cache-control', 'public,s-maxage=300,must-revalidate,durable')
 console.log(Astro.response.headers)
 console.log('NETLIFY ENV local VAR', process.env.NETLIFY_LOCAL)
 console.log({'NETLIFY ENV prod VAR': process.env.NETLIFY})
