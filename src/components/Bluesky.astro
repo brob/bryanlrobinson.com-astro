@@ -9,7 +9,7 @@ const {data} = await agent.getAuthorFeed({
     })
     const latestPost = data.feed[0].post
 
-const cacheHeaders = new CacheHeaders()
+const cacheHeaders = new CacheHeaders().ttl(300)
 cacheHeaders.forEach((value, key) => Astro.response.headers.set(key, value))
 console.log(Astro.response.headers)
 
