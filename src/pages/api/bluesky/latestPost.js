@@ -9,8 +9,9 @@ export async function GET({ params }) {
     })
 
     const latestPost = data.feed[0].post
-    const headers = new CacheHeaders().ttl(300).swr(600);
+    const headers = new CacheHeaders().ttl(300);
     console.log('In latestPost.js')
+    console.log(headers)
     console.log(JSON.stringify(Object.fromEntries([...headers])))
     return new Response(
       JSON.stringify(latestPost), {
