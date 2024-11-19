@@ -12,7 +12,8 @@ const {data} = await agent.getAuthorFeed({
 const cacheHeaders = new CacheHeaders().ttl(300)
 cacheHeaders.forEach((value, key) => Astro.response.headers.set(key, value))
 console.log(Astro.response.headers)
-console.log(process.env.NETLIFY)
+console.log('NETLIFY ENV local VAR', process.env.NETLIFY_LOCAL)
+console.log({'NETLIFY ENV prod VAR': process.env.NETLIFY})
 export const prerender = false;
 
 
