@@ -13,5 +13,5 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), react(), tailwind()],
 
 
-  // adapter: netlify()
+  adapter: netlify()
 });

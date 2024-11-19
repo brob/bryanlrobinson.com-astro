@@ -6,7 +6,7 @@ const agent = new AtpAgent({
 
 await agent.login({
     identifier: 'brob.dev',
-    password: process.env.BLUESKY_PASSWORD
+    password: import.meta.env.BLUESKY_PASSWORD
   })
 
 export default agent
