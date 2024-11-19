@@ -7,8 +7,8 @@ import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getPosts } from '../utils/sanityClient';
 import BlogCard from '../components/BlogCard.astro';
-import Bluesky from '../components/Bluesky.astro';
-import {BlueskyPost} from '@astro-community/astro-embed-bluesky'
+// import Bluesky from '../components/Bluesky.astro';
+// import {BlueskyPost} from '@astro-community/astro-embed-bluesky'
 const posts = (await getCollection('blog'))
 const sanityPosts = await getPosts()
 
@@ -46,7 +46,7 @@ const combinedPosts = [...posts, ...sanityPosts].sort(
 			<p>You may have heard of me, but probably not (I'm not that arrogant). I'm a developer educator that has been working on the web for over 18 years. I've done everything from video production, to leading development and design teams, to building the frontend for enterprise, content-heavy websites.</p>
 			<h2 class="text-2xl">Latest from Bluesky</h2>
 			
-			<div class="mb-8"><Bluesky server:defer><BlueskyPost slot="fallback" id="https://bsky.app/profile/brob.dev/post/3larq7z6y7k23" /></Bluesky></div>
+			<!-- <div class="mb-8"><Bluesky server:defer><BlueskyPost slot="fallback" id="https://bsky.app/profile/brob.dev/post/3larq7z6y7k23" /></Bluesky></div> -->
 			
 			<h3 class="text-xl font-bold">Other Places you can find me</h3>
 			

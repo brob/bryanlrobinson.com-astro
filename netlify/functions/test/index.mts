@@ -28,5 +28,5 @@ export default async (req: Request, context: Context) => {
 };
 
 export const config: Config = {
-  path: "/.netlify/functions/demo/:username"
+  path: "/api/demo/:username"
 };
