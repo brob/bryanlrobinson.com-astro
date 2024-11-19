@@ -12,7 +12,7 @@ const {data} = await agent.getAuthorFeed({
 const cacheHeaders = new CacheHeaders().ttl(300)
 cacheHeaders.forEach((value, key) => Astro.response.headers.set(key, value))
 console.log(Astro.response.headers)
-
+console.log(process.env.NETLIFY)
 export const prerender = false;
 
 
