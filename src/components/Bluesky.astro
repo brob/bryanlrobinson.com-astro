@@ -28,7 +28,7 @@ console.log(Astro.response.headers)
 const post = latestPostJson
 ---
 <h4>This is the headers according to Astro.response.headers</h4>
-{Astro.response.headers}
+{JSON.stringify(Object.fromEntries(Astro.response.headers))}
 
 <BlueskyPost id={post.uri} />
 
