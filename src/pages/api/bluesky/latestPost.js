@@ -1,5 +1,5 @@
 import agent from "../../../utils/bluesky";
-import { CacheHeaders } from "cdn-cache-control";
+import { CacheHeaders, ONE_HOUR } from "cdn-cache-control";
 
 export const prerender = false;
 
@@ -9,7 +9,7 @@ export async function GET({ params }) {
     })
 
     const latestPost = data.feed[0].post
-    const headers = new CacheHeaders().ttl(300);
+    const headers = new CacheHeaders().ttl(1800);
     console.log('In latestPost.js')
     console.log(headers)
 
