@@ -13,13 +13,12 @@ export async function GET({ params }) {
     console.log('In latestPost.js')
     console.log(headers)
     console.log(JSON.stringify(Object.fromEntries([...headers])))
-    return new Response(
-      JSON.stringify(latestPost), {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-          headers
+    const theResponse = new Response(
+        JSON.stringify(latestPost), {
+            status: 200,
+            headers
         }
-      }
     );
+    console.log(theResponse.headers)
+    return theResponse
   }
