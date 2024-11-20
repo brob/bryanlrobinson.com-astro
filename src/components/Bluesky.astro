@@ -17,15 +17,18 @@ const latestPostJson = await response.json();
 //     })
     const latestPost = latestPostJson
 
-    const cacheHeaders = new CacheHeaders().tag("post", "post-" + latestPost.cid);
-cacheHeaders.forEach((value, key) => Astro.response.headers.set(key, value))
+    const headers = new CacheHeaders().ttl(300);
+    headers.forEach((value, key) => Astro.response.headers.set(key, value))
 
 
 export const prerender = false;
 
 
-
+console.log(Astro.response.headers)
 const post = latestPostJson
 ---
+<h4>This is the headers according to Astro.response.headers</h4>
+{Astro.response.headers}
 
 <BlueskyPost id={post.uri} />
+
