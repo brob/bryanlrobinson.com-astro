@@ -1,34 +1,21 @@
 ---
 import agent from "../utils/bluesky";
-import { CacheHeaders, ONE_HOUR } from "cdn-cache-control";
+import { CacheHeaders } from "cdn-cache-control";
+import { BlueskyPost } from '@astro-community/astro-embed-bluesky'
+import { type Post } from '../../node_modules/@astro-community/astro-embed-bluesky/src/types'
+export const prerender = false
 
-import {BlueskyPost} from '@astro-community/astro-embed-bluesky'
+const { actor, cacheTime=1800 } = Astro.props
 
-const referer = Astro.request.headers.get('Referer');
-const url = new URL(referer);
-const response = await fetch(url?.origin + '/api/bluesky/latestPost')
-if (!response.ok) {
-    throw new Error(`Response status: ${response.status}`);
-}
-const latestPostJson = await response.json();
+const {data} = await agent.getAuthorFeed({
+    actor
+})
+const post = data.feed[0].post as Post
+// Caching
+const headers = new CacheHeaders().swr().ttl(cacheTime).tag(['posts', `post-${actor}`]);
 
-// const {data} = await agent.getAuthorFeed({
-//         actor: 'brob.dev'
-//     })
-    const latestPost = latestPostJson
-
-    const headers = new CacheHeaders().ttl(300);
-    headers.forEach((value, key) => Astro.response.headers.set(key, value))
-
-
-export const prerender = false;
-
-
-console.log(Astro.response.headers)
-const post = latestPostJson
+headers.forEach((value, key) => Astro.response.headers.set(key, value))
 ---
-<h4>This is the headers according to Astro.response.headers</h4>
-{JSON.stringify(Object.fromEntries(Astro.response.headers))}
 
-<BlueskyPost id={post.uri} />
+<BlueskyPost post={post} />
 
