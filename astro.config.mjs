@@ -9,7 +9,4 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://bryanlrobinson.com',
   integrations: [mdx(), sitemap(), react(), tailwind()],
-  experimental: {
-    contentLayer: true
-  }
 });
