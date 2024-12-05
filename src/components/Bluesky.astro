@@ -1,0 +1,21 @@
+---
+import agent from "../utils/bluesky";
+import { CacheHeaders } from "cdn-cache-control";
+import { BlueskyPost } from '@astro-community/astro-embed-bluesky'
+import { type Post } from '../../node_modules/@astro-community/astro-embed-bluesky/src/types'
+export const prerender = false
+
+const { actor, cacheTime=1800 } = Astro.props
+
+const {data} = await agent.getAuthorFeed({
+    actor
+})
+const post = data.feed[0].post as Post
+// Caching
+const headers = new CacheHeaders().swr().ttl(cacheTime).tag(['posts', `post-${actor}`]);
+
+headers.forEach((value, key) => Astro.response.headers.set(key, value))
+---
+
+<BlueskyPost post={post} />
+
