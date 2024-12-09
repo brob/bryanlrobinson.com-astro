@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Page.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getPosts } from '../utils/sanityClient';
+
+
+const sanityPosts = await getPosts().then((posts) => {
+	return posts.slice(0, 2);
+});
+console.log(sanityPosts.length)
+
+---
+
+<Layout
+	title="Thanks! We'll get back with you shortly">
+
+	<p>Thanks for reaching out! I'll be back with you shortly.</p>
+
+	<p>In the meantime, here are a couple recent articles:</p>
+	
+	<ul class="grid grid-cols-2 gap-4">
+		{sanityPosts.map(post => (
+			<BlogCard post={post} />
+		))}
+	</ul>
+</Layout>
