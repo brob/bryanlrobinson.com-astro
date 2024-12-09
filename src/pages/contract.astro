@@ -1,7 +1,13 @@
 ---
 import Layout from '../layouts/Page.astro';
+import { ClientRouter } from 'astro:transitions';
 
 ---
+
+<slot name="header">
+	<ClientRouter />
+
+</slot>
 
 <Layout
 	title="Work with Bryan">
