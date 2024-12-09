@@ -4,8 +4,10 @@ import Layout from '../layouts/Page.astro';
 
 <Layout
 	title="Work with Bryan">
-
-	<form name="contact" method="POST" data-netlify="true" class=" mx-auto p-8 bg-white shadow-md rounded-lg">
+	<h2 class="text-2xl font-bold">Briding your company and your technical user</h2>
+	<p>Whether you're looking for a DX audit, content creation, DevRel strategy, YouTube sponsored video, or something a bit different, Bryan can help your users find a deeper connection to your product.</p>
+	<p>Use the form below to submit a request, and Bryan will get back to you shortly.</p>
+	<form name="contact" method="POST" netlify class=" mx-auto p-8 bg-white shadow-md rounded-lg">
 		<input type="hidden" name="form-name" value="contact" />
 
 			<div class="mb-5">
@@ -28,6 +30,7 @@ import Layout from '../layouts/Page.astro';
 				<option>Developer Experience Audit</option>
 				<option>Content Creation</option>
 				<option>YouTube Sponsored Video</option>
+				<option>DevRel strategy</option>
 				<option>Community planning</option>
 				<option>Something else...</option>
 			</select>
