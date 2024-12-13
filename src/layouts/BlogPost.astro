@@ -7,14 +7,16 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, date, updatedDate, heroImage,featuredImg } = Astro.props;
+const { title, description, date, updatedDate, heroImage,featuredImg, canonical } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} image={featuredImg} />
+		<BaseHead title={title} description={description} image={featuredImg} canonical={canonical} />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism-tomorrow.css" />
+		
 
+		
 		<style>
 			main {
 				width: calc(100% - 2em);
@@ -35,6 +37,11 @@ const { title, description, date, updatedDate, heroImage,featuredImg } = Astro.p
 				margin: auto;
 				padding: 1em;
 				color: rgb(var(--gray-dark));
+			}
+			.canonical {
+				margin-bottom: 1rem;
+				font-size: .9rem;
+				font-style: italic;
 			}
 			.title {
 				margin-bottom: 1em;
@@ -75,6 +82,7 @@ const { title, description, date, updatedDate, heroImage,featuredImg } = Astro.p
 							}
 						</div>
 						<h1>{title}</h1>
+						{canonical && <p class="mb-5 canonical">Originally published: <a href={canonical}>{canonical}</a></p>}
 						<hr />
 					</div>
 					<slot />
